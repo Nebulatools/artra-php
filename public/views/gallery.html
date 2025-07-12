@@ -1,0 +1,694 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gallery - ARTRA</title>
+    <meta name="description" content="Explora nuestra galería de trabajos realizados, exposiciones y proyectos destacados. Descubre la calidad y creatividad de ARTRA a través de nuestras obras.">
+    <meta name="keywords" content="galería ARTRA, trabajos realizados, exposiciones, proyectos de enmarcado, obras terminadas, portfolio">
+    
+    <!-- Favicons -->
+    <link rel="icon" sizes="16x16" href="assets/ico/favicon.ico">
+    <link rel="apple-touch-icon" sizes="16x16" href="assets/ico/favicon.ico">
+    
+    <!-- Font Preloads -->
+    <link rel="preload" href="assets/fonts/CenturyOldStyleStd-Regular.ttf" as="font" type="font/ttf" crossorigin>
+    <link rel="preload" href="assets/fonts/CenturyOldStyleStd-Italic.ttf" as="font" type="font/ttf" crossorigin>
+    <link rel="preload" href="assets/fonts/Sohne-Kraftig.otf" as="font" type="font/otf" crossorigin>
+    
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="assets/css/style.css">
+    
+    <!-- Scripts -->
+    <script src="assets/js/cookies.js" defer></script>
+    <script src="assets/js/menu.js" defer></script>
+    
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ImageGallery",
+      "name": "ARTRA Gallery",
+      "description": "Galería de trabajos realizados y exposiciones de ARTRA",
+      "provider": {
+        "@type": "Organization",
+        "name": "ARTRA",
+        "description": "Estudio especializado en enmarcado premium y curaduría de arte"
+      }
+    }
+    </script>
+    
+    <!-- Inline Critical CSS -->
+    <style>
+        /* Font Declarations */
+        @font-face {
+            font-family: 'CenturyOldStyle';
+            src: url('assets/fonts/CenturyOldStyleStd-Regular.ttf') format('truetype');
+            font-weight: normal;
+            font-style: normal;
+            font-display: swap;
+        }
+        @font-face {
+            font-family: 'CenturyOldStyle';
+            src: url('assets/fonts/CenturyOldStyleStd-Italic.ttf') format('truetype');
+            font-weight: normal;
+            font-style: italic;
+            font-display: swap;
+        }
+        @font-face {
+            font-family: 'SohneKraftig';
+            src: url('assets/fonts/Sohne-Kraftig.otf') format('opentype');
+            font-weight: normal;
+            font-style: normal;
+            font-display: swap;
+        }
+        
+        /* Critical Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'CenturyOldStyle', 'SohneKraftig', serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #fff;
+        }
+        
+        /* Responsive visibility */
+        .desktop-only { display: none; }
+        .mobile-only { display: block; }
+        
+        @media (min-width: 768px) {
+            .desktop-only { display: block; }
+            .mobile-only { display: none; }
+        }
+        
+        /* Gallery specific styles */
+        .gallery-hero {
+            position: relative;
+            height: 60vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #34495e 0%, #2c3e50 100%);
+            color: white;
+            text-align: center;
+            overflow: hidden;
+        }
+        
+        .gallery-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('assets/svg/gallery-bg.svg') center/cover;
+            opacity: 0.15;
+        }
+        
+        .gallery-hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+            padding: 0 20px;
+        }
+        
+        .gallery-hero h1 {
+            font-family: 'SohneKraftig', sans-serif;
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        .gallery-hero p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+        
+        .gallery-filters {
+            padding: 40px 20px;
+            background: #f8f9fa;
+            border-bottom: 1px solid #e9ecef;
+        }
+        
+        .filters-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+        
+        .filter-btn {
+            padding: 10px 20px;
+            border: 2px solid #2c3e50;
+            background: transparent;
+            color: #2c3e50;
+            border-radius: 25px;
+            font-family: 'SohneKraftig', sans-serif;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+        
+        .filter-btn:hover,
+        .filter-btn.active {
+            background: #2c3e50;
+            color: white;
+        }
+        
+        .gallery-main {
+            padding: 80px 20px;
+            background: white;
+        }
+        
+        .gallery-container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+        
+        .gallery-item {
+            position: relative;
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .gallery-item:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+        }
+        
+        .gallery-image {
+            width: 100%;
+            height: 280px;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .gallery-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+        
+        .gallery-item:hover .gallery-image img {
+            transform: scale(1.05);
+        }
+        
+        .gallery-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(44,62,80,0.8), rgba(52,73,94,0.8));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .gallery-item:hover .gallery-overlay {
+            opacity: 1;
+        }
+        
+        .gallery-overlay-content {
+            text-align: center;
+            color: white;
+        }
+        
+        .gallery-overlay h3 {
+            font-family: 'SohneKraftig', sans-serif;
+            font-size: 1.3rem;
+            margin-bottom: 8px;
+        }
+        
+        .gallery-overlay p {
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+        
+        .gallery-info {
+            padding: 20px;
+        }
+        
+        .gallery-title {
+            font-family: 'SohneKraftig', sans-serif;
+            font-size: 1.2rem;
+            margin-bottom: 8px;
+            color: #2c3e50;
+        }
+        
+        .gallery-category {
+            font-size: 0.9rem;
+            color: #7f8c8d;
+            margin-bottom: 10px;
+            font-style: italic;
+        }
+        
+        .gallery-description {
+            font-size: 0.9rem;
+            color: #555;
+            line-height: 1.5;
+        }
+        
+        .gallery-masonry {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+            margin-bottom: 60px;
+        }
+        
+        .masonry-item {
+            position: relative;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .masonry-item:hover {
+            transform: translateY(-5px);
+        }
+        
+        .masonry-item img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        
+        .masonry-item:nth-child(3n) {
+            grid-row: span 2;
+        }
+        
+        .masonry-item:nth-child(5n) {
+            grid-row: span 3;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        
+        .section-title h2 {
+            font-family: 'SohneKraftig', sans-serif;
+            font-size: 2.5rem;
+            color: #2c3e50;
+            margin-bottom: 15px;
+        }
+        
+        .section-title p {
+            font-size: 1.1rem;
+            color: #6c757d;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .btn-primary {
+            background: #2c3e50;
+            color: white;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 6px;
+            font-family: 'SohneKraftig', sans-serif;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+        
+        .btn-primary:hover {
+            background: #1a252f;
+            transform: translateY(-2px);
+        }
+        
+        .testimonials {
+            padding: 80px 20px;
+            background: #f8f9fa;
+        }
+        
+        .testimonials-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        
+        .testimonial {
+            background: white;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            margin-bottom: 30px;
+        }
+        
+        .testimonial-text {
+            font-size: 1.2rem;
+            font-style: italic;
+            margin-bottom: 20px;
+            color: #555;
+        }
+        
+        .testimonial-author {
+            font-family: 'SohneKraftig', sans-serif;
+            font-weight: 600;
+            color: #2c3e50;
+        }
+        
+        /* Mobile adjustments */
+        @media (max-width: 767px) {
+            .gallery-hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .gallery-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            
+            .gallery-masonry {
+                grid-template-columns: 1fr;
+            }
+            
+            .masonry-item:nth-child(3n),
+            .masonry-item:nth-child(5n) {
+                grid-row: span 1;
+            }
+            
+            .filters-container {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .section-title h2 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body class="gallery-page">
+    <!-- Header Section -->
+    <header class="site-header">
+        <nav class="main-nav">
+            <button class="menu-toggle" aria-label="Toggle Menu">MENU</button>
+            <span class="bag-counter">BAG (0)</span>
+        </nav>
+        
+        <div class="brand-container">
+            <h1 class="site-title">ARTRA</h1>
+        </div>
+        
+        <div class="top-bar">
+            <div class="marquee-text">
+                <span>Curated Works and Printed Editions. Framing and Mounting Studio. Curated Works and Printed Editions. Framing and Mounting Studio.</span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Hero Section -->
+        <section class="gallery-hero">
+            <div class="gallery-hero-content">
+                <h1>OUR GALLERY</h1>
+                <p>Descubre nuestros trabajos terminados, exposiciones y proyectos destacados. Cada pieza cuenta una historia única.</p>
+            </div>
+        </section>
+
+        <!-- Filters Section -->
+        <section class="gallery-filters">
+            <div class="filters-container">
+                <button class="filter-btn active" data-filter="all">Todos</button>
+                <button class="filter-btn" data-filter="framing">Enmarcado</button>
+                <button class="filter-btn" data-filter="exhibitions">Exposiciones</button>
+                <button class="filter-btn" data-filter="custom">Proyectos Personalizados</button>
+                <button class="filter-btn" data-filter="artwork">Obras de Arte</button>
+            </div>
+        </section>
+
+        <!-- Gallery Grid -->
+        <section class="gallery-main">
+            <div class="gallery-container">
+                <div class="section-title">
+                    <h2>TRABAJOS DESTACADOS</h2>
+                    <p>Una selección de nuestros mejores trabajos de enmarcado y curaduría</p>
+                </div>
+                
+                <div class="gallery-grid">
+                    <!-- Gallery Item 1 -->
+                    <article class="gallery-item" data-category="framing">
+                        <div class="gallery-image">
+                            <img src="assets/svg/gallery-01.svg" alt="Enmarcado clásico elegante" loading="lazy">
+                            <div class="gallery-overlay">
+                                <div class="gallery-overlay-content">
+                                    <h3>Enmarcado Clásico</h3>
+                                    <p>Marco de madera noble con passe-partout</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="gallery-info">
+                            <h3 class="gallery-title">Retrato Familiar Vintage</h3>
+                            <div class="gallery-category">Enmarcado Premium</div>
+                            <p class="gallery-description">Marco de roble con acabado envejecido y passe-partout color crema. Cristal antireflectante para preservar la fotografía familiar.</p>
+                        </div>
+                    </article>
+
+                    <!-- Gallery Item 2 -->
+                    <article class="gallery-item" data-category="exhibitions">
+                        <div class="gallery-image">
+                            <img src="assets/svg/gallery-02.svg" alt="Exposición de arte contemporáneo" loading="lazy">
+                            <div class="gallery-overlay">
+                                <div class="gallery-overlay-content">
+                                    <h3>Exposición</h3>
+                                    <p>Montaje para galería de arte</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="gallery-info">
+                            <h3 class="gallery-title">Exposición "Nuevas Perspectivas"</h3>
+                            <div class="gallery-category">Exposición</div>
+                            <p class="gallery-description">Montaje completo para exposición de arte contemporáneo. 25 obras con marcos minimalistas y sistema de iluminación especializado.</p>
+                        </div>
+                    </article>
+
+                    <!-- Gallery Item 3 -->
+                    <article class="gallery-item" data-category="custom">
+                        <div class="gallery-image">
+                            <img src="assets/svg/gallery-03.svg" alt="Proyecto personalizado corporativo" loading="lazy">
+                            <div class="gallery-overlay">
+                                <div class="gallery-overlay-content">
+                                    <h3>Proyecto Corporativo</h3>
+                                    <p>Diseño personalizado para oficina</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="gallery-info">
+                            <h3 class="gallery-title">Instalación Corporativa</h3>
+                            <div class="gallery-category">Proyecto Personalizado</div>
+                            <p class="gallery-description">Serie de marcos personalizados para oficinas corporativas. Diseño modular con sistema de intercambio de obras.</p>
+                        </div>
+                    </article>
+
+                    <!-- Gallery Item 4 -->
+                    <article class="gallery-item" data-category="artwork">
+                        <div class="gallery-image">
+                            <img src="assets/svg/gallery-04.svg" alt="Obra de arte enmarcada" loading="lazy">
+                            <div class="gallery-overlay">
+                                <div class="gallery-overlay-content">
+                                    <h3>Obra Original</h3>
+                                    <p>Enmarcado de conservación</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="gallery-info">
+                            <h3 class="gallery-title">Pintura al Óleo Siglo XIX</h3>
+                            <div class="gallery-category">Obra de Arte</div>
+                            <p class="gallery-description">Restauración y enmarcado de conservación para pintura histórica. Marco dorado con técnicas tradicionales.</p>
+                        </div>
+                    </article>
+
+                    <!-- Gallery Item 5 -->
+                    <article class="gallery-item" data-category="framing">
+                        <div class="gallery-image">
+                            <img src="assets/svg/gallery-05.svg" alt="Enmarcado moderno" loading="lazy">
+                            <div class="gallery-overlay">
+                                <div class="gallery-overlay-content">
+                                    <h3>Estilo Moderno</h3>
+                                    <p>Líneas limpias y minimalistas</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="gallery-info">
+                            <h3 class="gallery-title">Fotografía Arquitectónica</h3>
+                            <div class="gallery-category">Enmarcado Moderno</div>
+                            <p class="gallery-description">Marco de aluminio negro mate con montaje flotante. Perfecto para fotografía contemporánea de gran formato.</p>
+                        </div>
+                    </article>
+
+                    <!-- Gallery Item 6 -->
+                    <article class="gallery-item" data-category="custom">
+                        <div class="gallery-image">
+                            <img src="assets/svg/gallery-06.svg" alt="Proyecto residencial personalizado" loading="lazy">
+                            <div class="gallery-overlay">
+                                <div class="gallery-overlay-content">
+                                    <h3>Residencial</h3>
+                                    <p>Colección personalizada para hogar</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="gallery-info">
+                            <h3 class="gallery-title">Colección Residencial</h3>
+                            <div class="gallery-category">Proyecto Personalizado</div>
+                            <p class="gallery-description">Conjunto de marcos coordinados para residencia privada. Diferentes estilos unificados por paleta cromática.</p>
+                        </div>
+                    </article>
+                </div>
+
+                <!-- Masonry Gallery -->
+                <div class="section-title">
+                    <h2>GALERÍA DE PROCESOS</h2>
+                    <p>Conoce nuestro proceso creativo paso a paso</p>
+                </div>
+                
+                <div class="gallery-masonry">
+                    <div class="masonry-item">
+                        <img src="assets/svg/process-01.svg" alt="Selección de materiales" loading="lazy">
+                    </div>
+                    <div class="masonry-item">
+                        <img src="assets/svg/process-02.svg" alt="Corte de precisión" loading="lazy">
+                    </div>
+                    <div class="masonry-item">
+                        <img src="assets/svg/process-03.svg" alt="Montaje profesional" loading="lazy">
+                    </div>
+                    <div class="masonry-item">
+                        <img src="assets/svg/process-04.svg" alt="Control de calidad" loading="lazy">
+                    </div>
+                    <div class="masonry-item">
+                        <img src="assets/svg/process-05.svg" alt="Acabado final" loading="lazy">
+                    </div>
+                    <div class="masonry-item">
+                        <img src="assets/svg/process-06.svg" alt="Resultado final" loading="lazy">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonials -->
+        <section class="testimonials">
+            <div class="testimonials-container">
+                <div class="section-title">
+                    <h2>LO QUE DICEN NUESTROS CLIENTES</h2>
+                </div>
+                
+                <div class="testimonial">
+                    <p class="testimonial-text">"El trabajo de ARTRA superó todas mis expectativas. El enmarcado de mi colección de fotografías quedó absolutamente perfecto. Profesionalismo y calidad excepcional."</p>
+                    <p class="testimonial-author">— María Carmen Rodriguez, Coleccionista</p>
+                </div>
+                
+                <div class="testimonial">
+                    <p class="testimonial-text">"Confiamos en ARTRA para el montaje de nuestra exposición anual. Su atención al detalle y conocimiento técnico son incomparables. Altamente recomendado."</p>
+                    <p class="testimonial-author">— Galería Arte Contemporáneo</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="cta-section">
+            <div class="cta-container">
+                <h2>¿Tienes un proyecto en mente?</h2>
+                <p>Cuéntanos tu idea y te ayudaremos a hacerla realidad con nuestro expertise profesional.</p>
+                <a href="hwdi.html" class="btn-primary btn-large">Iniciar Proyecto</a>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>ARTRA</h3>
+                <p>Estudio especializado en enmarcado premium y curaduría desde 2020. Transformamos espacios a través del arte.</p>
+            </div>
+            
+            <div class="footer-section">
+                <h4>Navegación</h4>
+                <ul>
+                    <li><a href="home.html">Inicio</a></li>
+                    <li><a href="hwdi.html">Cómo Trabajamos</a></li>
+                    <li><a href="catalogue.html">Catálogo</a></li>
+                    <li><a href="artwork.html">Artwork</a></li>
+                    <li><a href="gallery.html">Gallery</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h4>Servicios</h4>
+                <ul>
+                    <li>Enmarcado Premium</li>
+                    <li>Montaje de Exposiciones</li>
+                    <li>Proyectos Personalizados</li>
+                    <li>Conservación de Arte</li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h4>Contacto</h4>
+                <p>info@artra.com<br>+34 123 456 789</p>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>&copy; 2024 ARTRA. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <!-- Gallery JavaScript -->
+    <script>
+        // Filter functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const filterButtons = document.querySelectorAll('.filter-btn');
+            const galleryItems = document.querySelectorAll('.gallery-item');
+            
+            filterButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    // Remove active class from all buttons
+                    filterButtons.forEach(btn => btn.classList.remove('active'));
+                    // Add active class to clicked button
+                    this.classList.add('active');
+                    
+                    const filter = this.getAttribute('data-filter');
+                    
+                    galleryItems.forEach(item => {
+                        if (filter === 'all' || item.getAttribute('data-category') === filter) {
+                            item.style.display = 'block';
+                        } else {
+                            item.style.display = 'none';
+                        }
+                    });
+                });
+            });
+        });
+    </script>
+</body>
+</html>

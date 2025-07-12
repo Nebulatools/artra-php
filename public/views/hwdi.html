@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ARTRA | How We Do It</title>
+  
+  <!-- Favicons -->
+  <link rel="icon" sizes="16x16" href="assets/ico/favicon.ico">
+  <link rel="apple-touch-icon" sizes="16x16" href="assets/ico/favicon.ico">
+  
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="assets/css/style.css">
+  
+  <!-- Font Preloads -->
+  <link rel="preload" href="assets/fonts/CenturyOldStyleStd-Regular.ttf" as="font" type="font/ttf" crossorigin>
+  <link rel="preload" href="assets/fonts/CenturyOldStyleStd-Italic.ttf" as="font" type="font/ttf" crossorigin>
+  <link rel="preload" href="assets/fonts/Sohne-Kraftig.otf" as="font" type="font/otf" crossorigin>
+  
+  <!-- Scripts -->
+  <script src="assets/js/cookies.js" defer></script>
+  <script src="assets/js/menu.js" defer></script>
+  
+  <!-- Inline Critical CSS -->
+  <style>
+    /* Font Declarations */
+    @font-face {
+      font-family: 'CenturyOldStyle';
+      src: url('assets/fonts/CenturyOldStyleStd-Regular.ttf') format('truetype');
+      font-weight: normal;
+      font-style: normal;
+      font-display: swap;
+    }
+    @font-face {
+      font-family: 'CenturyOldStyle';
+      src: url('assets/fonts/CenturyOldStyleStd-Italic.ttf') format('truetype');
+      font-weight: normal;
+      font-style: italic;
+      font-display: swap;
+    }
+    @font-face {
+      font-family: 'SohneKraftig';
+      src: url('assets/fonts/Sohne-Kraftig.otf') format('opentype');
+      font-weight: normal;
+      font-style: normal;
+      font-display: swap;
+    }
+    
+    /* Critical Base Styles */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: 'CenturyOldStyle', 'SohneKraftig', serif;
+      line-height: 1.6;
+      color: #333;
+      background-color: #fff;
+    }
+    
+    /* Hide elements by default for progressive enhancement */
+    .desktop-only { display: none; }
+    .mobile-only { display: block; }
+    
+    /* Desktop styles */
+    @media (min-width: 768px) {
+      .desktop-only { display: block; }
+      .mobile-only { display: none; }
+    }
+  </style>
+</head>
+<body>
+  <!-- Header Section -->
+  <header class="site-header">
+    <nav class="main-nav">
+      <button class="menu-toggle" aria-label="Toggle Menu">MENU</button>
+      <span class="bag-counter">BAG (0)</span>
+    </nav>
+    
+    <div class="brand-container">
+      <h1 class="site-title">ARTRA</h1>
+    </div>
+    
+    <div class="top-bar">
+      <div class="marquee-text">
+        <span>Curated Works and Printed Editions. Framing and Mounting Studio. Curated Works and Printed Editions. Framing and Mounting Studio. Curated Works and Printed Editions. Framing and Mounting Studio.</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="main-content">
+    <!-- Page Title Section -->
+    <section class="page-title-section">
+      <div class="page-title-container">
+        <h1 class="page-title">HOW WE DO IT</h1>
+        <p class="page-subtitle">Our Process & Methodology</p>
+      </div>
+    </section>
+
+    <!-- Hero Section - Desktop Version -->
+    <section class="hwdi-hero-section desktop-only">
+      <div class="hwdi-hero-container">
+        <div class="hwdi-hero-content">
+          <h2 class="hwdi-hero-title">FRAMING EXCELLENCE</h2>
+          <p class="hwdi-hero-description">
+            Every piece that enters our studio receives meticulous attention to detail. 
+            From initial consultation to final installation, we ensure your artwork 
+            receives the presentation it deserves.
+          </p>
+        </div>
+        <div class="hwdi-hero-image">
+          <img src="assets/svg/img-01.svg" alt="Framing Process" loading="lazy">
+        </div>
+      </div>
+    </section>
+
+    <!-- Hero Section - Mobile Version -->
+    <section class="hwdi-hero-section mobile-only">
+      <div class="hwdi-hero-mobile-container">
+        <div class="hwdi-hero-image-mobile">
+          <img src="assets/svg/img-01.svg" alt="Framing Process" loading="lazy">
+        </div>
+        <div class="hwdi-hero-content-mobile">
+          <h2 class="hwdi-hero-title-mobile">FRAMING EXCELLENCE</h2>
+          <p class="hwdi-hero-description-mobile">
+            Every piece receives meticulous attention to detail. From consultation 
+            to installation, we ensure your artwork gets the presentation it deserves.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Process Steps Section -->
+    <section class="process-steps-section">
+      <div class="process-steps-container">
+        <h2 class="section-title">OUR PROCESS</h2>
+        
+        <div class="process-grid">
+          <div class="process-step">
+            <div class="step-number">01</div>
+            <div class="step-content">
+              <h3 class="step-title">CONSULTATION</h3>
+              <p class="step-description">
+                We begin with a detailed consultation to understand your vision, 
+                space requirements, and artistic preferences.
+              </p>
+              <div class="step-image">
+                <img src="assets/svg/img-02.svg" alt="Consultation Process" loading="lazy">
+              </div>
+            </div>
+          </div>
+
+          <div class="process-step">
+            <div class="step-number">02</div>
+            <div class="step-content">
+              <h3 class="step-title">DESIGN & SELECTION</h3>
+              <p class="step-description">
+                Choose from our extensive collection of moldings, mats, and glass options. 
+                We guide you through every decision.
+              </p>
+              <div class="step-image">
+                <img src="assets/svg/img-03.svg" alt="Design Selection" loading="lazy">
+              </div>
+            </div>
+          </div>
+
+          <div class="process-step">
+            <div class="step-number">03</div>
+            <div class="step-content">
+              <h3 class="step-title">PRECISION CRAFTING</h3>
+              <p class="step-description">
+                Our master craftsmen use traditional techniques combined with 
+                modern precision tools for perfect results.
+              </p>
+              <div class="step-image">
+                <img src="assets/svg/img-04.svg" alt="Crafting Process" loading="lazy">
+              </div>
+            </div>
+          </div>
+
+          <div class="process-step">
+            <div class="step-number">04</div>
+            <div class="step-content">
+              <h3 class="step-title">QUALITY ASSURANCE</h3>
+              <p class="step-description">
+                Every frame undergoes rigorous quality checks before we consider 
+                it ready for your artwork.
+              </p>
+              <div class="step-image">
+                <img src="assets/svg/img-05.svg" alt="Quality Check" loading="lazy">
+              </div>
+            </div>
+          </div>
+
+          <div class="process-step">
+            <div class="step-number">05</div>
+            <div class="step-content">
+              <h3 class="step-title">INSTALLATION</h3>
+              <p class="step-description">
+                Professional installation service ensures your artwork is 
+                perfectly positioned and securely mounted.
+              </p>
+              <div class="step-image">
+                <img src="assets/svg/img-06.svg" alt="Installation" loading="lazy">
+              </div>
+            </div>
+          </div>
+
+          <div class="process-step">
+            <div class="step-number">06</div>
+            <div class="step-content">
+              <h3 class="step-title">AFTERCARE</h3>
+              <p class="step-description">
+                We provide ongoing support and maintenance advice to keep 
+                your framed artwork in pristine condition.
+              </p>
+              <div class="step-image">
+                <img src="assets/svg/img-07.svg" alt="Aftercare" loading="lazy">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Materials Section -->
+    <section class="materials-section">
+      <div class="materials-container">
+        <h2 class="section-title">PREMIUM MATERIALS</h2>
+        
+        <div class="materials-grid">
+          <div class="material-category">
+            <h3 class="material-title">MOLDINGS</h3>
+            <p class="material-description">
+              From classic wood grains to contemporary metals, our molding selection 
+              encompasses every style and finish imaginable.
+            </p>
+            <ul class="material-list">
+              <li>Handcrafted Wood Frames</li>
+              <li>Gilded & Ornate Designs</li>
+              <li>Modern Metal Finishes</li>
+              <li>Custom Color Matching</li>
+            </ul>
+          </div>
+
+          <div class="material-category">
+            <h3 class="material-title">MATTING</h3>
+            <p class="material-description">
+              Museum-quality matting in hundreds of colors and textures, 
+              all acid-free and archival for lasting protection.
+            </p>
+            <ul class="material-list">
+              <li>Museum Board Mats</li>
+              <li>Fabric & Textured Options</li>
+              <li>Multiple Opening Layouts</li>
+              <li>Conservation Standards</li>
+            </ul>
+          </div>
+
+          <div class="material-category">
+            <h3 class="material-title">GLAZING</h3>
+            <p class="material-description">
+              UV-protective glazing options that preserve your artwork while 
+              providing crystal-clear viewing quality.
+            </p>
+            <ul class="material-list">
+              <li>Museum Glass</li>
+              <li>UV-Filtering Acrylic</li>
+              <li>Anti-Reflective Coatings</li>
+              <li>Specialty Applications</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Expertise Section -->
+    <section class="expertise-section">
+      <div class="expertise-container">
+        <div class="expertise-content">
+          <h2 class="expertise-title">DECADES OF EXPERTISE</h2>
+          <p class="expertise-description">
+            Our team brings together traditional craftsmanship with contemporary innovation. 
+            Each member of our studio has been carefully selected for their expertise and 
+            passion for preserving and presenting art.
+          </p>
+          <div class="expertise-stats">
+            <div class="stat-item">
+              <div class="stat-number">25+</div>
+              <div class="stat-label">Years Experience</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-number">10K+</div>
+              <div class="stat-label">Frames Crafted</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-number">500+</div>
+              <div class="stat-label">Happy Clients</div>
+            </div>
+          </div>
+        </div>
+        <div class="expertise-image">
+          <img src="assets/svg/img-08.svg" alt="Master Craftsman" loading="lazy">
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+      <div class="cta-container">
+        <h2 class="cta-title">READY TO START YOUR PROJECT?</h2>
+        <p class="cta-description">
+          Contact us today for a consultation and discover how we can transform your artwork.
+        </p>
+        <div class="cta-buttons">
+          <a href="#contact" class="cta-button primary">Schedule Consultation</a>
+          <a href="#gallery" class="cta-button secondary">View Our Work</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer Section -->
+  <footer class="site-footer">
+    <div class="footer-container">
+      <div class="footer-links">
+        <div class="footer-column">
+          <strong>FRAMING STUDIO</strong><br>
+          <strong>ABOUT</strong><br>
+          <strong>ARTWORKS</strong><br>
+          <strong>ARTISTS</strong><br>
+          <strong>PERSONALIZE</strong><br>
+          <strong>GALLERY</strong><br>
+          <strong>SEARCH</strong>
+        </div>
+        
+        <div class="footer-column">
+          <strong>TERMS & CONDITIONS</strong><br>
+          <strong>PRIVACY</strong><br>
+          <strong>GOODS</strong><br>
+          <strong>FAQ</strong><br>
+          <strong>CONTACT</strong><br>
+          <strong>INSTAGRAM</strong>
+        </div>
+        
+        <div class="footer-info">
+          <small>
+            Gallery & Framing Studio<br>
+            Av. José Vasconcelos 62<br>
+            We forge alliances with modern artists, renowned and emerging, to create unique visual experiences in the utmost caliber.
+          </small>
+        </div>
+      </div>
+      
+      <div class="footer-copyright">
+        <small>© 2023 ARTRA. All rights reserved.</small>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Figma Data Comment -->
+  <!-- 
+  Generated from Figma How We Do It frames:
+  Desktop Main: 424:593 (How We Do It Desktop NEW)
+  Desktop OP.2: 452:2343 (How We Do It Desktop NEW OP.2)
+  Mobile Main: 425:768 (How We Do It Mobile NEW)
+  Mobile Alt: 452:3767 (How We Do It Mobile NEW)
+  Selected Layouts: 452:2344, 452:3768
+  Generation Date: 2025-07-03T22:21:29.222Z
+  -->
+</body>
+</html>

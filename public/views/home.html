@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ARTRA | Home</title>
+  
+  <!-- Favicons -->
+  <link rel="icon" sizes="16x16" href="assets/ico/favicon.ico">
+  <link rel="apple-touch-icon" sizes="16x16" href="assets/ico/favicon.ico">
+  
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="assets/css/style.css">
+  
+  <!-- Font Preloads -->
+  <link rel="preload" href="assets/fonts/CenturyOldStyleStd-Regular.ttf" as="font" type="font/ttf" crossorigin>
+  <link rel="preload" href="assets/fonts/CenturyOldStyleStd-Italic.ttf" as="font" type="font/ttf" crossorigin>
+  <link rel="preload" href="assets/fonts/Sohne-Kraftig.otf" as="font" type="font/otf" crossorigin>
+  
+  <!-- Scripts -->
+  <script src="assets/js/cookies.js" defer></script>
+  <script src="assets/js/menu.js" defer></script>
+  
+  <!-- Inline Critical CSS -->
+  <style>
+    /* Font Declarations */
+    @font-face {
+      font-family: 'CenturyOldStyle';
+      src: url('assets/fonts/CenturyOldStyleStd-Regular.ttf') format('truetype');
+      font-weight: normal;
+      font-style: normal;
+      font-display: swap;
+    }
+    @font-face {
+      font-family: 'CenturyOldStyle';
+      src: url('assets/fonts/CenturyOldStyleStd-Italic.ttf') format('truetype');
+      font-weight: normal;
+      font-style: italic;
+      font-display: swap;
+    }
+    @font-face {
+      font-family: 'SohneKraftig';
+      src: url('assets/fonts/Sohne-Kraftig.otf') format('opentype');
+      font-weight: normal;
+      font-style: normal;
+      font-display: swap;
+    }
+    
+    /* Critical Base Styles */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: 'CenturyOldStyle', 'SohneKraftig', serif;
+      line-height: 1.6;
+      color: #333;
+      background-color: #fff;
+    }
+    
+    /* Hide elements by default for progressive enhancement */
+    .desktop-only { display: none; }
+    .mobile-only { display: block; }
+    
+    /* Desktop styles */
+    @media (min-width: 768px) {
+      .desktop-only { display: block; }
+      .mobile-only { display: none; }
+    }
+  </style>
+</head>
+<body>
+  <!-- Header Section -->
+  <header class="site-header">
+    <nav class="main-nav">
+      <button class="menu-toggle" aria-label="Toggle Menu">MENU</button>
+      <span class="bag-counter">BAG (0)</span>
+    </nav>
+    
+    <div class="brand-container">
+      <h1 class="site-title">ARTRA</h1>
+    </div>
+    
+    <div class="top-bar">
+      <div class="marquee-text">
+        <span>Curated Works and Printed Editions. Framing and Mounting Studio. Curated Works and Printed Editions. Framing and Mounting Studio. Curated Works and Printed Editions. Framing and Mounting Studio.</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="main-content">
+    <!-- Hero Section - Desktop Version -->
+    <section class="hero-section desktop-only">
+      <div class="hero-container">
+        <div class="hero-image-primary">
+          <img src="assets/svg/img-01.svg" alt="Large frame display" loading="lazy">
+        </div>
+        <div class="hero-content">
+          <div class="hero-image-secondary">
+            <img src="assets/svg/img-02.svg" alt="Portrait artwork" loading="lazy">
+          </div>
+          <div class="hero-text">
+            <h2 class="hero-title">NEW FRAMES.</h2>
+            <div class="hero-description">
+              <p><strong>Frame Name</strong></p>
+              <p>Frame visual description.</p>
+              <p><a href="#" class="hero-link">See frame.</a></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Hero Section - Mobile Version -->
+    <section class="hero-section mobile-only">
+      <div class="hero-mobile-container">
+        <div class="hero-image-mobile">
+          <img src="assets/svg/img-02.svg" alt="Portrait artwork" loading="lazy">
+        </div>
+        <div class="hero-content-mobile">
+          <h2 class="hero-title-mobile">NEW FRAMES.</h2>
+          <div class="hero-description-mobile">
+            <p><strong>Frame Name</strong></p>
+            <p>Frame visual description.</p>
+            <p><a href="#" class="hero-link-mobile">See frame.</a></p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Coming Soon Section -->
+    <section class="coming-soon-section">
+      <div class="coming-soon-container">
+        <div class="coming-soon-item">
+          <div class="coming-soon-image">
+            <img src="assets/svg/img-03.svg" alt="Exhibit 1" loading="lazy">
+          </div>
+          <h3 class="coming-soon-title">COMING SOON.<br>EXHIBIT 1.</h3>
+        </div>
+        
+        <div class="coming-soon-item">
+          <div class="coming-soon-image">
+            <img src="assets/svg/img-04.svg" alt="Catalogue" loading="lazy">
+          </div>
+          <h3 class="coming-soon-title">DISCOVER OUR CATALOGUE.</h3>
+        </div>
+        
+        <div class="coming-soon-item">
+          <div class="coming-soon-image">
+            <img src="assets/svg/img-05.svg" alt="Artists & Works" loading="lazy">
+          </div>
+          <h3 class="coming-soon-title">COMING SOON.<br>ARTISTS & WORKS.</h3>
+        </div>
+      </div>
+    </section>
+
+    <!-- Top Picks Section -->
+    <section class="top-picks-section">
+      <div class="top-picks-container">
+        <h2 class="section-title">OUR TOP PICKS.</h2>
+        
+        <div class="frames-grid">
+          
+          <div class="frame-item">
+            <div class="frame-image">
+              <img src="assets/svg/img-06.svg" alt="Frame 1" loading="lazy">
+            </div>
+            <div class="frame-info">
+              <p class="frame-name">Frame 1</p>
+              <small class="frame-details">Descripción<br>Specs</small>
+            </div>
+          </div>
+          <div class="frame-item">
+            <div class="frame-image">
+              <img src="assets/svg/img-07.svg" alt="Frame 2" loading="lazy">
+            </div>
+            <div class="frame-info">
+              <p class="frame-name">Frame 2</p>
+              <small class="frame-details">Descripción<br>Specs</small>
+            </div>
+          </div>
+          <div class="frame-item">
+            <div class="frame-image">
+              <img src="assets/svg/img-08.svg" alt="Frame 3" loading="lazy">
+            </div>
+            <div class="frame-info">
+              <p class="frame-name">Frame 3</p>
+              <small class="frame-details">Descripción<br>Specs</small>
+            </div>
+          </div>
+          <div class="frame-item">
+            <div class="frame-image">
+              <img src="assets/svg/img-09.svg" alt="Frame 4" loading="lazy">
+            </div>
+            <div class="frame-info">
+              <p class="frame-name">Frame 4</p>
+              <small class="frame-details">Descripción<br>Specs</small>
+            </div>
+          </div>
+          <div class="frame-item">
+            <div class="frame-image">
+              <img src="assets/svg/img-10.svg" alt="Frame 5" loading="lazy">
+            </div>
+            <div class="frame-info">
+              <p class="frame-name">Frame 5</p>
+              <small class="frame-details">Descripción<br>Specs</small>
+            </div>
+          </div>
+          <div class="frame-item">
+            <div class="frame-image">
+              <img src="assets/svg/img-11.svg" alt="Frame 6" loading="lazy">
+            </div>
+            <div class="frame-info">
+              <p class="frame-name">Frame 6</p>
+              <small class="frame-details">Descripción<br>Specs</small>
+            </div>
+          </div>
+          <div class="frame-item">
+            <div class="frame-image">
+              <img src="assets/svg/img-12.svg" alt="Frame 7" loading="lazy">
+            </div>
+            <div class="frame-info">
+              <p class="frame-name">Frame 7</p>
+              <small class="frame-details">Descripción<br>Specs</small>
+            </div>
+          </div>
+          <div class="frame-item">
+            <div class="frame-image">
+              <img src="assets/svg/img-13.svg" alt="Frame 8" loading="lazy">
+            </div>
+            <div class="frame-info">
+              <p class="frame-name">Frame 8</p>
+              <small class="frame-details">Descripción<br>Specs</small>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about-section">
+      <div class="about-container">
+        <div class="about-message">
+          <p class="about-text">We cherish every client's creative aims, regardless of artistic agenda, process, or public interventions.</p>
+        </div>
+        
+        <div class="about-studio">
+          <h3 class="about-title">Framing Studio<br><small>Bespoke Artistry</small></h3>
+          <p class="about-description">Choose from our wide range of moldings, styles, from natural wood to gilded frames. Whether surface float mount is on a range of core or eddie mountworks.</p>
+        </div>
+        
+        <div class="about-gallery-image">
+          <img src="assets/svg/img-08.svg" alt="Gallery Art" loading="lazy">
+        </div>
+        
+        <div class="about-exhibit-image">
+          <img src="assets/svg/img-09.svg" alt="Exhibit Photo" loading="lazy">
+        </div>
+        
+        <div class="about-gallery-content">
+          <h3 class="about-title">Artist Gallery<br><small>Exclusive Art Exhibit</small></h3>
+          <p class="about-description">We cherish every chance to achieve this, especially private exposures, reviews, and provocative public interventions.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Newsletter Section -->
+    <section class="newsletter-section">
+      <div class="newsletter-container">
+        <form class="newsletter-form">
+          <label for="newsletter" class="newsletter-label">Subscribe to our Newsletter</label>
+          <input type="email" id="newsletter" name="newsletter" placeholder="Enter Email" class="newsletter-input" required>
+          <button type="submit" class="newsletter-button">Subscribe</button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer Section -->
+  <footer class="site-footer">
+    <div class="footer-container">
+      <div class="footer-links">
+        <div class="footer-column">
+          <strong>FRAMING STUDIO</strong><br>
+          <strong>ABOUT</strong><br>
+          <strong>ARTWORKS</strong><br>
+          <strong>ARTISTS</strong><br>
+          <strong>PERSONALIZE</strong><br>
+          <strong>GALLERY</strong><br>
+          <strong>SEARCH</strong>
+        </div>
+        
+        <div class="footer-column">
+          <strong>TERMS & CONDITIONS</strong><br>
+          <strong>PRIVACY</strong><br>
+          <strong>GOODS</strong><br>
+          <strong>FAQ</strong><br>
+          <strong>CONTACT</strong><br>
+          <strong>INSTAGRAM</strong>
+        </div>
+        
+        <div class="footer-info">
+          <small>
+            Gallery & Framing Studio<br>
+            Av. José Vasconcelos 62<br>
+            We forge alliances with modern artists, renowned and emerging, to create unique visual experiences in the utmost caliber.
+          </small>
+        </div>
+      </div>
+      
+      <div class="footer-copyright">
+        <small>© 2023 ARTRA. All rights reserved.</small>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

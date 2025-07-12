@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Catalogue - ARTRA</title>
+    <meta name="description" content="Explora nuestra exquisita colección de marcos personalizados, passe-partout y opciones de acristalamiento. Calidad premium para tus obras de arte y recuerdos más preciados.">
+    <meta name="keywords" content="marcos personalizados, marcos para cuadros, passe-partout, acristalamiento, enmarcado de arte, catálogo ARTRA">
+    
+    <!-- Favicons -->
+    <link rel="icon" sizes="16x16" href="assets/ico/favicon.ico">
+    <link rel="apple-touch-icon" sizes="16x16" href="assets/ico/favicon.ico">
+    
+    <!-- Font Preloads -->
+    <link rel="preload" href="assets/fonts/CenturyOldStyleStd-Regular.ttf" as="font" type="font/ttf" crossorigin>
+    <link rel="preload" href="assets/fonts/CenturyOldStyleStd-Italic.ttf" as="font" type="font/ttf" crossorigin>
+    <link rel="preload" href="assets/fonts/Sohne-Kraftig.otf" as="font" type="font/otf" crossorigin>
+    
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="assets/css/style.css">
+    
+    <!-- Scripts -->
+    <script src="assets/js/cookies.js" defer></script>
+    <script src="assets/js/menu.js" defer></script>
+    
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Catalog",
+      "name": "ARTRA Custom Framing Catalogue",
+      "description": "Marcos personalizados premium, passe-partout y soluciones de acristalamiento",
+      "provider": {
+        "@type": "Organization",
+        "name": "ARTRA",
+        "description": "Especialistas en enmarcado personalizado premium"
+      }
+    }
+    </script>
+    
+    <!-- Inline Critical CSS -->
+    <style>
+        /* Font Declarations */
+        @font-face {
+            font-family: 'CenturyOldStyle';
+            src: url('assets/fonts/CenturyOldStyleStd-Regular.ttf') format('truetype');
+            font-weight: normal;
+            font-style: normal;
+            font-display: swap;
+        }
+        @font-face {
+            font-family: 'CenturyOldStyle';
+            src: url('assets/fonts/CenturyOldStyleStd-Italic.ttf') format('truetype');
+            font-weight: normal;
+            font-style: italic;
+            font-display: swap;
+        }
+        @font-face {
+            font-family: 'SohneKraftig';
+            src: url('assets/fonts/Sohne-Kraftig.otf') format('opentype');
+            font-weight: normal;
+            font-style: normal;
+            font-display: swap;
+        }
+        
+        /* Critical Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'CenturyOldStyle', 'SohneKraftig', serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #fff;
+        }
+        
+        /* Responsive visibility */
+        .desktop-only { display: none; }
+        .mobile-only { display: block; }
+        
+        @media (min-width: 768px) {
+            .desktop-only { display: block; }
+            .mobile-only { display: none; }
+        }
+        
+        /* Catalogue specific styles */
+        .catalogue-hero {
+            padding: 60px 20px;
+            text-align: center;
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+        }
+        
+        .catalogue-hero h1 {
+            font-family: 'SohneKraftig', sans-serif;
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: #2c3e50;
+        }
+        
+        .catalogue-hero p {
+            font-size: 1.2rem;
+            color: #6c757d;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .catalogue-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            padding: 80px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .frame-card {
+            background: #fff;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .frame-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+        }
+        
+        .frame-image {
+            width: 100%;
+            height: 250px;
+            background: #f8f9fa;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+        
+        .frame-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .frame-info {
+            padding: 25px;
+        }
+        
+        .frame-title {
+            font-family: 'SohneKraftig', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: #2c3e50;
+        }
+        
+        .frame-description {
+            color: #6c757d;
+            margin-bottom: 15px;
+            line-height: 1.5;
+        }
+        
+        .frame-specs {
+            font-size: 0.9rem;
+            color: #495057;
+            margin-bottom: 20px;
+        }
+        
+        .frame-price {
+            font-family: 'SohneKraftig', sans-serif;
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: #e74c3c;
+            margin-bottom: 15px;
+        }
+        
+        .btn-primary {
+            background: #2c3e50;
+            color: white;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 6px;
+            font-family: 'SohneKraftig', sans-serif;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+        
+        .btn-primary:hover {
+            background: #1a252f;
+        }
+        
+        /* Mobile adjustments */
+        @media (max-width: 767px) {
+            .catalogue-hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .catalogue-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+                padding: 60px 20px;
+            }
+        }
+    </style>
+</head>
+<body class="catalogue-page">
+    <!-- Header Section -->
+    <header class="site-header">
+        <nav class="main-nav">
+            <button class="menu-toggle" aria-label="Toggle Menu">MENU</button>
+            <span class="bag-counter">BAG (0)</span>
+        </nav>
+        
+        <div class="brand-container">
+            <h1 class="site-title">ARTRA</h1>
+        </div>
+        
+        <div class="top-bar">
+            <div class="marquee-text">
+                <span>Curated Works and Printed Editions. Framing and Mounting Studio. Curated Works and Printed Editions. Framing and Mounting Studio.</span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Catalogue Hero Section -->
+        <section class="catalogue-hero">
+            <h1>OUR CATALOGUE</h1>
+            <p>Descubre nuestra selección cuidadosamente curada de marcos premium, passe-partout y opciones de acristalamiento. Cada pieza está diseñada para realzar y proteger tus obras más preciadas.</p>
+        </section>
+
+        <!-- Catalogue Grid -->
+        <section class="catalogue-content">
+            <div class="catalogue-grid">
+                <!-- Frame 1 - Classic Collection -->
+                <article class="frame-card">
+                    <div class="frame-image">
+                        <img src="assets/svg/img-06.svg" alt="Marco Clásico Premium" loading="lazy">
+                    </div>
+                    <div class="frame-info">
+                        <h3 class="frame-title">Marco Clásico Premium</h3>
+                        <p class="frame-description">Elegancia atemporal con acabados en madera noble. Perfecto para obras de arte tradicionales y fotografías familiares.</p>
+                        <div class="frame-specs">
+                            <strong>Materiales:</strong> Madera de roble, cristal antireflectante<br>
+                            <strong>Tamaños:</strong> 20x25cm, 30x40cm, 40x50cm<br>
+                            <strong>Grosor:</strong> 2.5cm
+                        </div>
+                        <div class="frame-price">Desde €45</div>
+                        <a href="#" class="btn-primary">Ver Detalles</a>
+                    </div>
+                </article>
+
+                <!-- Frame 2 - Modern Collection -->
+                <article class="frame-card">
+                    <div class="frame-image">
+                        <img src="assets/svg/img-07.svg" alt="Marco Moderno Minimalista" loading="lazy">
+                    </div>
+                    <div class="frame-info">
+                        <h3 class="frame-title">Marco Moderno Minimalista</h3>
+                        <p class="frame-description">Diseño contemporáneo con líneas limpias. Ideal para arte moderno, fotografía urbana y espacios minimalistas.</p>
+                        <div class="frame-specs">
+                            <strong>Materiales:</strong> Aluminio anodizado, cristal UV<br>
+                            <strong>Tamaños:</strong> 21x30cm, 30x42cm, 50x70cm<br>
+                            <strong>Grosor:</strong> 1.5cm
+                        </div>
+                        <div class="frame-price">Desde €38</div>
+                        <a href="#" class="btn-primary">Ver Detalles</a>
+                    </div>
+                </article>
+
+                <!-- Frame 3 - Vintage Collection -->
+                <article class="frame-card">
+                    <div class="frame-image">
+                        <img src="assets/svg/img-08.svg" alt="Marco Vintage Ornamental" loading="lazy">
+                    </div>
+                    <div class="frame-info">
+                        <h3 class="frame-title">Marco Vintage Ornamental</h3>
+                        <p class="frame-description">Detalles ornamentales con acabado envejecido. Perfecto para obras clásicas y fotografías de época.</p>
+                        <div class="frame-specs">
+                            <strong>Materiales:</strong> Madera tallada, cristal museístico<br>
+                            <strong>Tamaños:</strong> 24x30cm, 30x40cm, 40x60cm<br>
+                            <strong>Grosor:</strong> 3.5cm
+                        </div>
+                        <div class="frame-price">Desde €65</div>
+                        <a href="#" class="btn-primary">Ver Detalles</a>
+                    </div>
+                </article>
+
+                <!-- Frame 4 - Gallery Collection -->
+                <article class="frame-card">
+                    <div class="frame-image">
+                        <img src="assets/svg/img-09.svg" alt="Marco Gallery Professional" loading="lazy">
+                    </div>
+                    <div class="frame-info">
+                        <h3 class="frame-title">Marco Gallery Professional</h3>
+                        <p class="frame-description">Calidad de galería profesional con passe-partout incluido. Conservación premium para obras de alto valor.</p>
+                        <div class="frame-specs">
+                            <strong>Materiales:</strong> Madera noble, cristal museístico<br>
+                            <strong>Tamaños:</strong> 30x40cm, 40x50cm, 50x70cm<br>
+                            <strong>Grosor:</strong> 4cm
+                        </div>
+                        <div class="frame-price">Desde €85</div>
+                        <a href="#" class="btn-primary">Ver Detalles</a>
+                    </div>
+                </article>
+
+                <!-- Frame 5 - Custom Collection -->
+                <article class="frame-card">
+                    <div class="frame-image">
+                        <img src="assets/svg/img-10.svg" alt="Marco Personalizado" loading="lazy">
+                    </div>
+                    <div class="frame-info">
+                        <h3 class="frame-title">Marco Personalizado</h3>
+                        <p class="frame-description">Diseño completamente personalizado según tus especificaciones. Materiales premium y acabados exclusivos.</p>
+                        <div class="frame-specs">
+                            <strong>Materiales:</strong> A elegir<br>
+                            <strong>Tamaños:</strong> Cualquier medida<br>
+                            <strong>Grosor:</strong> Personalizable
+                        </div>
+                        <div class="frame-price">Consulta precio</div>
+                        <a href="#" class="btn-primary">Solicitar Cotización</a>
+                    </div>
+                </article>
+
+                <!-- Frame 6 - Float Collection -->
+                <article class="frame-card">
+                    <div class="frame-image">
+                        <img src="assets/svg/img-11.svg" alt="Marco Float Frame" loading="lazy">
+                    </div>
+                    <div class="frame-info">
+                        <h3 class="frame-title">Marco Float Frame</h3>
+                        <p class="frame-description">Efecto flotante moderno que crea profundidad visual. Ideal para obras sobre lienzo y arte contemporáneo.</p>
+                        <div class="frame-specs">
+                            <strong>Materiales:</strong> Madera natural, cristal float<br>
+                            <strong>Tamaños:</strong> 25x35cm, 35x45cm, 45x60cm<br>
+                            <strong>Grosor:</strong> 2cm
+                        </div>
+                        <div class="frame-price">Desde €52</div>
+                        <a href="#" class="btn-primary">Ver Detalles</a>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- Services Section -->
+        <section class="services-section">
+            <div class="services-container">
+                <h2 class="section-title">SERVICIOS ADICIONALES</h2>
+                
+                <div class="services-grid">
+                    <div class="service-item">
+                        <div class="service-icon">
+                            <img src="assets/svg/service-01.svg" alt="Passe-partout personalizado" loading="lazy">
+                        </div>
+                        <h3>Passe-partout Personalizado</h3>
+                        <p>Corte de precisión en múltiples colores y texturas. Acabados biselados profesionales.</p>
+                    </div>
+                    
+                    <div class="service-item">
+                        <div class="service-icon">
+                            <img src="assets/svg/service-02.svg" alt="Cristales especiales" loading="lazy">
+                        </div>
+                        <h3>Cristales Especiales</h3>
+                        <p>Cristal antireflectante, UV, museístico. Protección premium para tus obras más valiosas.</p>
+                    </div>
+                    
+                    <div class="service-item">
+                        <div class="service-icon">
+                            <img src="assets/svg/service-03.svg" alt="Instalación profesional" loading="lazy">
+                        </div>
+                        <h3>Instalación Profesional</h3>
+                        <p>Montaje e instalación profesional. Asesoramiento en ubicación y disposición.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="cta-section">
+            <div class="cta-container">
+                <h2>¿Necesitas un marco personalizado?</h2>
+                <p>Nuestros expertos te ayudarán a encontrar la solución perfecta para tu obra.</p>
+                <a href="hwdi.html" class="btn-primary btn-large">Descubre Cómo Trabajamos</a>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>ARTRA</h3>
+                <p>Especialistas en enmarcado personalizado desde 2020. Calidad premium para tus obras más preciadas.</p>
+            </div>
+            
+            <div class="footer-section">
+                <h4>Navegación</h4>
+                <ul>
+                    <li><a href="home.html">Inicio</a></li>
+                    <li><a href="hwdi.html">Cómo Trabajamos</a></li>
+                    <li><a href="catalogue.html">Catálogo</a></li>
+                    <li><a href="#contact">Contacto</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h4>Servicios</h4>
+                <ul>
+                    <li>Marcos Personalizados</li>
+                    <li>Passe-partout</li>
+                    <li>Cristales Especiales</li>
+                    <li>Instalación</li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h4>Contacto</h4>
+                <p>info@artra.com<br>+34 123 456 789</p>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>&copy; 2024 ARTRA. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+</body>
+</html>

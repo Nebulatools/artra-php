@@ -1,0 +1,887 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Artists - ARTRA</title>
+    <meta name="description" content="Conoce a los talentosos artistas que colaboran con ARTRA. Descubre sus historias, técnicas y obras más destacadas en nuestra plataforma de arte contemporáneo.">
+    <meta name="keywords" content="artistas contemporáneos, colaboradores ARTRA, perfiles de artistas, arte moderno, creadores, biografías de artistas">
+    
+    <!-- Favicons -->
+    <link rel="icon" sizes="16x16" href="assets/ico/favicon.ico">
+    <link rel="apple-touch-icon" sizes="16x16" href="assets/ico/favicon.ico">
+    
+    <!-- Font Preloads -->
+    <link rel="preload" href="assets/fonts/CenturyOldStyleStd-Regular.ttf" as="font" type="font/ttf" crossorigin>
+    <link rel="preload" href="assets/fonts/CenturyOldStyleStd-Italic.ttf" as="font" type="font/ttf" crossorigin>
+    <link rel="preload" href="assets/fonts/Sohne-Kraftig.otf" as="font" type="font/otf" crossorigin>
+    
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="assets/css/style.css">
+    
+    <!-- Scripts -->
+    <script src="assets/js/cookies.js" defer></script>
+    <script src="assets/js/menu.js" defer></script>
+    
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "CollectionPage",
+      "name": "ARTRA Artists",
+      "description": "Perfiles de artistas colaboradores de ARTRA",
+      "provider": {
+        "@type": "Organization",
+        "name": "ARTRA",
+        "description": "Plataforma de arte contemporáneo y enmarcado premium"
+      }
+    }
+    </script>
+    
+    <!-- Inline Critical CSS -->
+    <style>
+        /* Font Declarations */
+        @font-face {
+            font-family: 'CenturyOldStyle';
+            src: url('assets/fonts/CenturyOldStyleStd-Regular.ttf') format('truetype');
+            font-weight: normal;
+            font-style: normal;
+            font-display: swap;
+        }
+        @font-face {
+            font-family: 'CenturyOldStyle';
+            src: url('assets/fonts/CenturyOldStyleStd-Italic.ttf') format('truetype');
+            font-weight: normal;
+            font-style: italic;
+            font-display: swap;
+        }
+        @font-face {
+            font-family: 'SohneKraftig';
+            src: url('assets/fonts/Sohne-Kraftig.otf') format('opentype');
+            font-weight: normal;
+            font-style: normal;
+            font-display: swap;
+        }
+        
+        /* Critical Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'CenturyOldStyle', 'SohneKraftig', serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #fff;
+        }
+        
+        /* Responsive visibility */
+        .desktop-only { display: none; }
+        .mobile-only { display: block; }
+        
+        @media (min-width: 768px) {
+            .desktop-only { display: block; }
+            .mobile-only { display: none; }
+        }
+        
+        /* Artists specific styles */
+        .artists-hero {
+            position: relative;
+            height: 65vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+            color: white;
+            text-align: center;
+            overflow: hidden;
+        }
+        
+        .artists-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('assets/svg/artists-bg.svg') center/cover;
+            opacity: 0.12;
+        }
+        
+        .artists-hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 900px;
+            padding: 0 20px;
+        }
+        
+        .artists-hero h1 {
+            font-family: 'SohneKraftig', sans-serif;
+            font-size: 3.8rem;
+            font-weight: 700;
+            margin-bottom: 25px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        .artists-hero p {
+            font-size: 1.3rem;
+            margin-bottom: 35px;
+            opacity: 0.95;
+            line-height: 1.7;
+        }
+        
+        .artists-hero .btn-primary {
+            background: rgba(255,255,255,0.15);
+            border: 2px solid white;
+            color: white;
+            padding: 16px 32px;
+            font-size: 1.1rem;
+            backdrop-filter: blur(10px);
+            border-radius: 6px;
+        }
+        
+        .artists-hero .btn-primary:hover {
+            background: white;
+            color: #2c3e50;
+        }
+        
+        .featured-artist {
+            padding: 120px 20px;
+            background: #f8f9fa;
+        }
+        
+        .featured-container {
+            max-width: 1300px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1.2fr;
+            gap: 80px;
+            align-items: center;
+        }
+        
+        .featured-artist-image {
+            position: relative;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 25px 50px rgba(0,0,0,0.15);
+        }
+        
+        .featured-artist-image img {
+            width: 100%;
+            height: 500px;
+            object-fit: cover;
+            display: block;
+        }
+        
+        .featured-badge {
+            position: absolute;
+            top: 25px;
+            left: 25px;
+            background: #e74c3c;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 25px;
+            font-size: 0.95rem;
+            font-weight: 600;
+            font-family: 'SohneKraftig', sans-serif;
+        }
+        
+        .featured-artist-info h2 {
+            font-family: 'SohneKraftig', sans-serif;
+            font-size: 3rem;
+            margin-bottom: 15px;
+            color: #2c3e50;
+        }
+        
+        .featured-artist-info .specialty {
+            font-size: 1.3rem;
+            color: #7f8c8d;
+            margin-bottom: 30px;
+            font-style: italic;
+        }
+        
+        .featured-artist-info .bio {
+            font-size: 1.15rem;
+            line-height: 1.8;
+            margin-bottom: 35px;
+            color: #555;
+        }
+        
+        .artist-stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+            margin-bottom: 40px;
+        }
+        
+        .stat-item {
+            text-align: center;
+            background: white;
+            padding: 25px 15px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+        }
+        
+        .stat-number {
+            font-family: 'SohneKraftig', sans-serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #e74c3c;
+            display: block;
+        }
+        
+        .stat-label {
+            font-size: 0.9rem;
+            color: #6c757d;
+            margin-top: 5px;
+        }
+        
+        .artists-grid {
+            padding: 120px 20px;
+            background: white;
+        }
+        
+        .artists-container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 80px;
+        }
+        
+        .section-title h2 {
+            font-family: 'SohneKraftig', sans-serif;
+            font-size: 3rem;
+            color: #2c3e50;
+            margin-bottom: 20px;
+        }
+        
+        .section-title p {
+            font-size: 1.2rem;
+            color: #6c757d;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        .artists-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+            gap: 50px;
+        }
+        
+        .artist-card {
+            background: white;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 12px 35px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .artist-card:hover {
+            transform: translateY(-12px);
+            box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+        }
+        
+        .artist-image {
+            width: 100%;
+            height: 320px;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .artist-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+        
+        .artist-card:hover .artist-image img {
+            transform: scale(1.05);
+        }
+        
+        .artist-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(44,62,80,0.85), rgba(52,73,94,0.85));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .artist-card:hover .artist-overlay {
+            opacity: 1;
+        }
+        
+        .artist-overlay-content {
+            text-align: center;
+            color: white;
+        }
+        
+        .view-portfolio {
+            background: white;
+            color: #2c3e50;
+            padding: 12px 24px;
+            border-radius: 25px;
+            font-family: 'SohneKraftig', sans-serif;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        .view-portfolio:hover {
+            background: #e74c3c;
+            color: white;
+        }
+        
+        .artist-info {
+            padding: 30px;
+        }
+        
+        .artist-name {
+            font-family: 'SohneKraftig', sans-serif;
+            font-size: 1.5rem;
+            margin-bottom: 8px;
+            color: #2c3e50;
+        }
+        
+        .artist-specialty {
+            color: #7f8c8d;
+            margin-bottom: 15px;
+            font-style: italic;
+            font-size: 1rem;
+        }
+        
+        .artist-description {
+            font-size: 0.95rem;
+            color: #555;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+        
+        .artist-works {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 20px;
+        }
+        
+        .work-preview {
+            width: 60px;
+            height: 60px;
+            border-radius: 8px;
+            overflow: hidden;
+            border: 2px solid #f1f3f4;
+        }
+        
+        .work-preview img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .artist-contact {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .contact-info {
+            font-size: 0.9rem;
+            color: #6c757d;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 10px;
+        }
+        
+        .social-link {
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            background: #f8f9fa;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #6c757d;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        .social-link:hover {
+            background: #2c3e50;
+            color: white;
+        }
+        
+        .btn-primary {
+            background: #2c3e50;
+            color: white;
+            padding: 14px 28px;
+            border: none;
+            border-radius: 6px;
+            font-family: 'SohneKraftig', sans-serif;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+        
+        .btn-primary:hover {
+            background: #1a252f;
+            transform: translateY(-2px);
+        }
+        
+        .btn-secondary {
+            background: transparent;
+            color: #2c3e50;
+            border: 2px solid #2c3e50;
+            padding: 12px 24px;
+            border-radius: 6px;
+            font-family: 'SohneKraftig', sans-serif;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+            margin-left: 15px;
+        }
+        
+        .btn-secondary:hover {
+            background: #2c3e50;
+            color: white;
+        }
+        
+        .collaboration {
+            padding: 100px 20px;
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+        }
+        
+        .collaboration-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        
+        .collaboration h2 {
+            font-family: 'SohneKraftig', sans-serif;
+            font-size: 2.8rem;
+            color: #2c3e50;
+            margin-bottom: 25px;
+        }
+        
+        .collaboration p {
+            font-size: 1.2rem;
+            color: #555;
+            margin-bottom: 40px;
+            line-height: 1.7;
+        }
+        
+        /* Mobile adjustments */
+        @media (max-width: 767px) {
+            .artists-hero h1 {
+                font-size: 2.8rem;
+            }
+            
+            .featured-container {
+                grid-template-columns: 1fr;
+                gap: 50px;
+            }
+            
+            .featured-artist-info h2 {
+                font-size: 2.2rem;
+            }
+            
+            .artist-stats {
+                grid-template-columns: 1fr;
+                gap: 15px;
+            }
+            
+            .artists-list {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+            
+            .section-title h2 {
+                font-size: 2.2rem;
+            }
+            
+            .collaboration h2 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body class="artists-page">
+    <!-- Header Section -->
+    <header class="site-header">
+        <nav class="main-nav">
+            <button class="menu-toggle" aria-label="Toggle Menu">MENU</button>
+            <span class="bag-counter">BAG (0)</span>
+        </nav>
+        
+        <div class="brand-container">
+            <h1 class="site-title">ARTRA</h1>
+        </div>
+        
+        <div class="top-bar">
+            <div class="marquee-text">
+                <span>Curated Works and Printed Editions. Framing and Mounting Studio. Curated Works and Printed Editions. Framing and Mounting Studio.</span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Hero Section -->
+        <section class="artists-hero">
+            <div class="artists-hero-content">
+                <h1>OUR ARTISTS</h1>
+                <p>Conoce a los talentosos creadores que dan vida a nuestra colección. Cada artista aporta su visión única y técnica excepcional para crear obras que trascienden el tiempo.</p>
+                <a href="#artists" class="btn-primary">Explorar Artistas</a>
+            </div>
+        </section>
+
+        <!-- Featured Artist -->
+        <section class="featured-artist">
+            <div class="featured-container">
+                <div class="featured-artist-image">
+                    <img src="assets/svg/artist-featured.svg" alt="María Elena González - Artista destacada" loading="lazy">
+                    <div class="featured-badge">ARTISTA DESTACADA</div>
+                </div>
+                
+                <div class="featured-artist-info">
+                    <h2>María Elena González</h2>
+                    <div class="specialty">Abstracción Contemporánea & Técnicas Mixtas</div>
+                    <div class="bio">
+                        María Elena es una artista visionaria cuyo trabajo explora la intersección entre lo emocional y lo geométrico. 
+                        Con más de 15 años de trayectoria, ha desarrollado un lenguaje visual único que combina técnicas tradicionales 
+                        con medios contemporáneos, creando obras que invitan a la contemplación y el descubrimiento.
+                    </div>
+                    
+                    <div class="artist-stats">
+                        <div class="stat-item">
+                            <span class="stat-number">47</span>
+                            <div class="stat-label">Obras Creadas</div>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">12</span>
+                            <div class="stat-label">Exposiciones</div>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">8</span>
+                            <div class="stat-label">Premios</div>
+                        </div>
+                    </div>
+                    
+                    <a href="#" class="btn-primary">Ver Portfolio</a>
+                    <a href="#" class="btn-secondary">Contactar</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Artists Grid -->
+        <section class="artists-grid" id="artists">
+            <div class="artists-container">
+                <div class="section-title">
+                    <h2>NUESTROS COLABORADORES</h2>
+                    <p>Una selección cuidadosa de artistas emergentes y establecidos que comparten nuestra pasión por la excelencia artística</p>
+                </div>
+                
+                <div class="artists-list">
+                    <!-- Artist 1 -->
+                    <article class="artist-card">
+                        <div class="artist-image">
+                            <img src="assets/svg/artist-01.svg" alt="Carlos Mendoza" loading="lazy">
+                            <div class="artist-overlay">
+                                <div class="artist-overlay-content">
+                                    <a href="#" class="view-portfolio">Ver Portfolio</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="artist-info">
+                            <h3 class="artist-name">Carlos Mendoza</h3>
+                            <div class="artist-specialty">Fotografía Urbana & Arquitectónica</div>
+                            <p class="artist-description">
+                                Especialista en capturar la esencia de las ciudades modernas. Su trabajo documenta la evolución urbana 
+                                con una perspectiva poética y técnica impecable.
+                            </p>
+                            <div class="artist-works">
+                                <div class="work-preview">
+                                    <img src="assets/svg/work-carlos-01.svg" alt="Obra 1" loading="lazy">
+                                </div>
+                                <div class="work-preview">
+                                    <img src="assets/svg/work-carlos-02.svg" alt="Obra 2" loading="lazy">
+                                </div>
+                                <div class="work-preview">
+                                    <img src="assets/svg/work-carlos-03.svg" alt="Obra 3" loading="lazy">
+                                </div>
+                            </div>
+                            <div class="artist-contact">
+                                <div class="contact-info">Barcelona, España</div>
+                                <div class="social-links">
+                                    <a href="#" class="social-link" aria-label="Instagram">📷</a>
+                                    <a href="#" class="social-link" aria-label="Website">🌐</a>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Artist 2 -->
+                    <article class="artist-card">
+                        <div class="artist-image">
+                            <img src="assets/svg/artist-02.svg" alt="Ana Ruiz" loading="lazy">
+                            <div class="artist-overlay">
+                                <div class="artist-overlay-content">
+                                    <a href="#" class="view-portfolio">Ver Portfolio</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="artist-info">
+                            <h3 class="artist-name">Ana Ruiz</h3>
+                            <div class="artist-specialty">Arte Digital & Nuevos Medios</div>
+                            <p class="artist-description">
+                                Pionera en la fusión de tecnología y naturaleza. Sus obras digitales exploran temas ecológicos 
+                                con una estética innovadora que desafía límites tradicionales.
+                            </p>
+                            <div class="artist-works">
+                                <div class="work-preview">
+                                    <img src="assets/svg/work-ana-01.svg" alt="Obra 1" loading="lazy">
+                                </div>
+                                <div class="work-preview">
+                                    <img src="assets/svg/work-ana-02.svg" alt="Obra 2" loading="lazy">
+                                </div>
+                                <div class="work-preview">
+                                    <img src="assets/svg/work-ana-03.svg" alt="Obra 3" loading="lazy">
+                                </div>
+                            </div>
+                            <div class="artist-contact">
+                                <div class="contact-info">Madrid, España</div>
+                                <div class="social-links">
+                                    <a href="#" class="social-link" aria-label="Instagram">📷</a>
+                                    <a href="#" class="social-link" aria-label="Website">🌐</a>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Artist 3 -->
+                    <article class="artist-card">
+                        <div class="artist-image">
+                            <img src="assets/svg/artist-03.svg" alt="Luis Ferrer" loading="lazy">
+                            <div class="artist-overlay">
+                                <div class="artist-overlay-content">
+                                    <a href="#" class="view-portfolio">Ver Portfolio</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="artist-info">
+                            <h3 class="artist-name">Luis Ferrer</h3>
+                            <div class="artist-specialty">Pintura Contemporánea & Expresionismo</div>
+                            <p class="artist-description">
+                                Su obra explora la geometría emocional a través de colores vibrantes y formas dinámicas. 
+                                Cada pieza es un diálogo entre estructura y sentimiento.
+                            </p>
+                            <div class="artist-works">
+                                <div class="work-preview">
+                                    <img src="assets/svg/work-luis-01.svg" alt="Obra 1" loading="lazy">
+                                </div>
+                                <div class="work-preview">
+                                    <img src="assets/svg/work-luis-02.svg" alt="Obra 2" loading="lazy">
+                                </div>
+                                <div class="work-preview">
+                                    <img src="assets/svg/work-luis-03.svg" alt="Obra 3" loading="lazy">
+                                </div>
+                            </div>
+                            <div class="artist-contact">
+                                <div class="contact-info">Valencia, España</div>
+                                <div class="social-links">
+                                    <a href="#" class="social-link" aria-label="Instagram">📷</a>
+                                    <a href="#" class="social-link" aria-label="Website">🌐</a>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Artist 4 -->
+                    <article class="artist-card">
+                        <div class="artist-image">
+                            <img src="assets/svg/artist-04.svg" alt="Elena Vega" loading="lazy">
+                            <div class="artist-overlay">
+                                <div class="artist-overlay-content">
+                                    <a href="#" class="view-portfolio">Ver Portfolio</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="artist-info">
+                            <h3 class="artist-name">Elena Vega</h3>
+                            <div class="artist-specialty">Escultura & Instalaciones</div>
+                            <p class="artist-description">
+                                Sus esculturas reflexivas invitan a la contemplación nocturna. Trabaja con materiales orgánicos 
+                                para crear piezas que cambian con la luz y las estaciones.
+                            </p>
+                            <div class="artist-works">
+                                <div class="work-preview">
+                                    <img src="assets/svg/work-elena-01.svg" alt="Obra 1" loading="lazy">
+                                </div>
+                                <div class="work-preview">
+                                    <img src="assets/svg/work-elena-02.svg" alt="Obra 2" loading="lazy">
+                                </div>
+                                <div class="work-preview">
+                                    <img src="assets/svg/work-elena-03.svg" alt="Obra 3" loading="lazy">
+                                </div>
+                            </div>
+                            <div class="artist-contact">
+                                <div class="contact-info">Sevilla, España</div>
+                                <div class="social-links">
+                                    <a href="#" class="social-link" aria-label="Instagram">📷</a>
+                                    <a href="#" class="social-link" aria-label="Website">🌐</a>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Artist 5 -->
+                    <article class="artist-card">
+                        <div class="artist-image">
+                            <img src="assets/svg/artist-05.svg" alt="Roberto Silva" loading="lazy">
+                            <div class="artist-overlay">
+                                <div class="artist-overlay-content">
+                                    <a href="#" class="view-portfolio">Ver Portfolio</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="artist-info">
+                            <h3 class="artist-name">Roberto Silva</h3>
+                            <div class="artist-specialty">Técnicas Mixtas & Collage</div>
+                            <p class="artist-description">
+                                Maestro del color y la textura, Roberto crea obras que son verdaderos paisajes emocionales. 
+                                Sus collages cuentan historias a través de capas y contrastes.
+                            </p>
+                            <div class="artist-works">
+                                <div class="work-preview">
+                                    <img src="assets/svg/work-roberto-01.svg" alt="Obra 1" loading="lazy">
+                                </div>
+                                <div class="work-preview">
+                                    <img src="assets/svg/work-roberto-02.svg" alt="Obra 2" loading="lazy">
+                                </div>
+                                <div class="work-preview">
+                                    <img src="assets/svg/work-roberto-03.svg" alt="Obra 3" loading="lazy">
+                                </div>
+                            </div>
+                            <div class="artist-contact">
+                                <div class="contact-info">Bilbao, España</div>
+                                <div class="social-links">
+                                    <a href="#" class="social-link" aria-label="Instagram">📷</a>
+                                    <a href="#" class="social-link" aria-label="Website">🌐</a>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Artist 6 -->
+                    <article class="artist-card">
+                        <div class="artist-image">
+                            <img src="assets/svg/artist-06.svg" alt="Patricia Morales" loading="lazy">
+                            <div class="artist-overlay">
+                                <div class="artist-overlay-content">
+                                    <a href="#" class="view-portfolio">Ver Portfolio</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="artist-info">
+                            <h3 class="artist-name">Patricia Morales</h3>
+                            <div class="artist-specialty">Pintura Abstracta & Minimalismo</div>
+                            <p class="artist-description">
+                                Sus horizontes infinitos capturan la esencia del espacio y el tiempo. Patricia explora 
+                                la simplicidad como medio para expresar ideas complejas sobre el cosmos.
+                            </p>
+                            <div class="artist-works">
+                                <div class="work-preview">
+                                    <img src="assets/svg/work-patricia-01.svg" alt="Obra 1" loading="lazy">
+                                </div>
+                                <div class="work-preview">
+                                    <img src="assets/svg/work-patricia-02.svg" alt="Obra 2" loading="lazy">
+                                </div>
+                                <div class="work-preview">
+                                    <img src="assets/svg/work-patricia-03.svg" alt="Obra 3" loading="lazy">
+                                </div>
+                            </div>
+                            <div class="artist-contact">
+                                <div class="contact-info">Alicante, España</div>
+                                <div class="social-links">
+                                    <a href="#" class="social-link" aria-label="Instagram">📷</a>
+                                    <a href="#" class="social-link" aria-label="Website">🌐</a>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Collaboration Section -->
+        <section class="collaboration">
+            <div class="collaboration-container">
+                <h2>¿Eres artista y quieres colaborar?</h2>
+                <p>
+                    Estamos siempre en busca de nuevos talentos para ampliar nuestra comunidad creativa. 
+                    Si tu trabajo resuena con nuestra visión de calidad y originalidad, nos encantaría conocerte.
+                </p>
+                <a href="#" class="btn-primary">Enviar Portfolio</a>
+                <a href="#" class="btn-secondary">Más Información</a>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>ARTRA</h3>
+                <p>Conectamos artistas talentosos con coleccionistas apasionados. Promovemos el arte contemporáneo desde 2020.</p>
+            </div>
+            
+            <div class="footer-section">
+                <h4>Navegación</h4>
+                <ul>
+                    <li><a href="home.html">Inicio</a></li>
+                    <li><a href="hwdi.html">Cómo Trabajamos</a></li>
+                    <li><a href="catalogue.html">Catálogo</a></li>
+                    <li><a href="artwork.html">Artwork</a></li>
+                    <li><a href="gallery.html">Gallery</a></li>
+                    <li><a href="artists.html">Artists</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h4>Para Artistas</h4>
+                <ul>
+                    <li>Proceso de Selección</li>
+                    <li>Comisiones</li>
+                    <li>Exposiciones</li>
+                    <li>Soporte Técnico</li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h4>Contacto</h4>
+                <p>artists@artra.com<br>+34 123 456 789</p>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>&copy; 2024 ARTRA. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+</body>
+</html>

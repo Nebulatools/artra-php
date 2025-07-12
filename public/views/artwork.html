@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Artwork - ARTRA</title>
+    <meta name="description" content="Descubre nuestra selección curada de obras de arte y ediciones limitadas. Piezas únicas para coleccionistas y amantes del arte contemporáneo.">
+    <meta name="keywords" content="obra de arte, ediciones limitadas, arte contemporáneo, colección curada, arte moderno, ARTRA artwork">
+    
+    <!-- Favicons -->
+    <link rel="icon" sizes="16x16" href="assets/ico/favicon.ico">
+    <link rel="apple-touch-icon" sizes="16x16" href="assets/ico/favicon.ico">
+    
+    <!-- Font Preloads -->
+    <link rel="preload" href="assets/fonts/CenturyOldStyleStd-Regular.ttf" as="font" type="font/ttf" crossorigin>
+    <link rel="preload" href="assets/fonts/CenturyOldStyleStd-Italic.ttf" as="font" type="font/ttf" crossorigin>
+    <link rel="preload" href="assets/fonts/Sohne-Kraftig.otf" as="font" type="font/otf" crossorigin>
+    
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="assets/css/style.css">
+    
+    <!-- Scripts -->
+    <script src="assets/js/cookies.js" defer></script>
+    <script src="assets/js/menu.js" defer></script>
+    
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ArtGallery",
+      "name": "ARTRA Artwork Collection",
+      "description": "Selección curada de obras de arte y ediciones limitadas",
+      "provider": {
+        "@type": "Organization",
+        "name": "ARTRA",
+        "description": "Galería especializada en arte contemporáneo y enmarcado premium"
+      }
+    }
+    </script>
+    
+    <!-- Inline Critical CSS -->
+    <style>
+        /* Font Declarations */
+        @font-face {
+            font-family: 'CenturyOldStyle';
+            src: url('assets/fonts/CenturyOldStyleStd-Regular.ttf') format('truetype');
+            font-weight: normal;
+            font-style: normal;
+            font-display: swap;
+        }
+        @font-face {
+            font-family: 'CenturyOldStyle';
+            src: url('assets/fonts/CenturyOldStyleStd-Italic.ttf') format('truetype');
+            font-weight: normal;
+            font-style: italic;
+            font-display: swap;
+        }
+        @font-face {
+            font-family: 'SohneKraftig';
+            src: url('assets/fonts/Sohne-Kraftig.otf') format('opentype');
+            font-weight: normal;
+            font-style: normal;
+            font-display: swap;
+        }
+        
+        /* Critical Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'CenturyOldStyle', 'SohneKraftig', serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #fff;
+        }
+        
+        /* Responsive visibility */
+        .desktop-only { display: none; }
+        .mobile-only { display: block; }
+        
+        @media (min-width: 768px) {
+            .desktop-only { display: block; }
+            .mobile-only { display: none; }
+        }
+        
+        /* Artwork specific styles */
+        .artwork-hero {
+            position: relative;
+            height: 70vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+            color: white;
+            text-align: center;
+            overflow: hidden;
+        }
+        
+        .artwork-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('assets/svg/artwork-bg.svg') center/cover;
+            opacity: 0.1;
+        }
+        
+        .artwork-hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+            padding: 0 20px;
+        }
+        
+        .artwork-hero h1 {
+            font-family: 'SohneKraftig', sans-serif;
+            font-size: 4rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        .artwork-hero p {
+            font-size: 1.3rem;
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+        
+        .artwork-hero .btn-primary {
+            background: rgba(255,255,255,0.2);
+            border: 2px solid white;
+            color: white;
+            padding: 15px 30px;
+            font-size: 1.1rem;
+            backdrop-filter: blur(10px);
+        }
+        
+        .artwork-hero .btn-primary:hover {
+            background: white;
+            color: #2c3e50;
+        }
+        
+        .featured-artwork {
+            padding: 100px 20px;
+            background: #f8f9fa;
+        }
+        
+        .featured-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+        
+        .featured-image {
+            position: relative;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+        
+        .featured-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        
+        .featured-badge {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background: #e74c3c;
+            color: white;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+        
+        .featured-info h2 {
+            font-family: 'SohneKraftig', sans-serif;
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: #2c3e50;
+        }
+        
+        .featured-info .artist {
+            font-size: 1.2rem;
+            color: #7f8c8d;
+            margin-bottom: 25px;
+            font-style: italic;
+        }
+        
+        .featured-info .description {
+            font-size: 1.1rem;
+            line-height: 1.7;
+            margin-bottom: 30px;
+            color: #555;
+        }
+        
+        .artwork-details {
+            background: white;
+            padding: 25px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+        }
+        
+        .artwork-details h4 {
+            font-family: 'SohneKraftig', sans-serif;
+            margin-bottom: 15px;
+            color: #2c3e50;
+        }
+        
+        .artwork-details ul {
+            list-style: none;
+        }
+        
+        .artwork-details li {
+            margin-bottom: 8px;
+            padding-left: 20px;
+            position: relative;
+        }
+        
+        .artwork-details li:before {
+            content: '•';
+            position: absolute;
+            left: 0;
+            color: #e74c3c;
+            font-weight: bold;
+        }
+        
+        .artwork-price {
+            font-family: 'SohneKraftig', sans-serif;
+            font-size: 2rem;
+            font-weight: 700;
+            color: #2c3e50;
+            margin-bottom: 20px;
+        }
+        
+        .artwork-gallery {
+            padding: 100px 20px;
+            background: white;
+        }
+        
+        .gallery-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .gallery-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        
+        .gallery-title h2 {
+            font-family: 'SohneKraftig', sans-serif;
+            font-size: 3rem;
+            color: #2c3e50;
+            margin-bottom: 20px;
+        }
+        
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+        }
+        
+        .artwork-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .artwork-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.15);
+        }
+        
+        .artwork-card-image {
+            width: 100%;
+            height: 300px;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .artwork-card-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+        
+        .artwork-card:hover .artwork-card-image img {
+            transform: scale(1.05);
+        }
+        
+        .artwork-card-info {
+            padding: 25px;
+        }
+        
+        .artwork-card-title {
+            font-family: 'SohneKraftig', sans-serif;
+            font-size: 1.3rem;
+            margin-bottom: 8px;
+            color: #2c3e50;
+        }
+        
+        .artwork-card-artist {
+            color: #7f8c8d;
+            margin-bottom: 15px;
+            font-style: italic;
+        }
+        
+        .artwork-card-price {
+            font-family: 'SohneKraftig', sans-serif;
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #e74c3c;
+            margin-bottom: 15px;
+        }
+        
+        .btn-primary {
+            background: #2c3e50;
+            color: white;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 6px;
+            font-family: 'SohneKraftig', sans-serif;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+        
+        .btn-primary:hover {
+            background: #1a252f;
+            transform: translateY(-2px);
+        }
+        
+        .btn-secondary {
+            background: transparent;
+            color: #2c3e50;
+            border: 2px solid #2c3e50;
+            padding: 12px 24px;
+            border-radius: 6px;
+            font-family: 'SohneKraftig', sans-serif;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+            margin-left: 10px;
+        }
+        
+        .btn-secondary:hover {
+            background: #2c3e50;
+            color: white;
+        }
+        
+        /* Mobile adjustments */
+        @media (max-width: 767px) {
+            .artwork-hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .featured-container {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+            
+            .gallery-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+            
+            .featured-info h2 {
+                font-size: 2rem;
+            }
+            
+            .gallery-title h2 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body class="artwork-page">
+    <!-- Header Section -->
+    <header class="site-header">
+        <nav class="main-nav">
+            <button class="menu-toggle" aria-label="Toggle Menu">MENU</button>
+            <span class="bag-counter">BAG (0)</span>
+        </nav>
+        
+        <div class="brand-container">
+            <h1 class="site-title">ARTRA</h1>
+        </div>
+        
+        <div class="top-bar">
+            <div class="marquee-text">
+                <span>Curated Works and Printed Editions. Framing and Mounting Studio. Curated Works and Printed Editions. Framing and Mounting Studio.</span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Hero Section -->
+        <section class="artwork-hero">
+            <div class="artwork-hero-content">
+                <h1>ARTWORK COLLECTION</h1>
+                <p>Obras seleccionadas cuidadosamente para coleccionistas exigentes. Descubre piezas únicas que transformarán tu espacio.</p>
+                <a href="#gallery" class="btn-primary">Explorar Colección</a>
+            </div>
+        </section>
+
+        <!-- Featured Artwork -->
+        <section class="featured-artwork">
+            <div class="featured-container">
+                <div class="featured-image">
+                    <img src="assets/svg/artwork-featured.svg" alt="Obra destacada - Abstracción Contemporánea" loading="lazy">
+                    <div class="featured-badge">OBRA DESTACADA</div>
+                </div>
+                
+                <div class="featured-info">
+                    <h2>Abstracción Contemporánea</h2>
+                    <div class="artist">Por María González</div>
+                    <div class="description">
+                        Una exploración fascinante de la forma y el color que captura la esencia del movimiento contemporáneo. 
+                        Esta pieza única combina técnicas tradicionales con una visión moderna, creando una experiencia visual 
+                        que evoluciona con cada observación.
+                    </div>
+                    
+                    <div class="artwork-details">
+                        <h4>Detalles de la Obra</h4>
+                        <ul>
+                            <li><strong>Técnica:</strong> Óleo sobre lienzo</li>
+                            <li><strong>Dimensiones:</strong> 80 x 100 cm</li>
+                            <li><strong>Año:</strong> 2024</li>
+                            <li><strong>Edición:</strong> Pieza única</li>
+                            <li><strong>Certificado:</strong> Autenticidad incluido</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="artwork-price">€2,850</div>
+                    <a href="#" class="btn-primary">Adquirir Obra</a>
+                    <a href="#" class="btn-secondary">Más Información</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Gallery Section -->
+        <section class="artwork-gallery" id="gallery">
+            <div class="gallery-container">
+                <div class="gallery-title">
+                    <h2>NUESTRA COLECCIÓN</h2>
+                    <p>Explora nuestra selección curada de obras de arte contemporáneo</p>
+                </div>
+                
+                <div class="gallery-grid">
+                    <!-- Artwork 1 -->
+                    <article class="artwork-card">
+                        <div class="artwork-card-image">
+                            <img src="assets/svg/artwork-01.svg" alt="Serenidad Urbana" loading="lazy">
+                        </div>
+                        <div class="artwork-card-info">
+                            <h3 class="artwork-card-title">Serenidad Urbana</h3>
+                            <div class="artwork-card-artist">Por Carlos Mendoza</div>
+                            <div class="artwork-card-price">€1,200</div>
+                            <a href="#" class="btn-primary">Ver Detalles</a>
+                        </div>
+                    </article>
+
+                    <!-- Artwork 2 -->
+                    <article class="artwork-card">
+                        <div class="artwork-card-image">
+                            <img src="assets/svg/artwork-02.svg" alt="Naturaleza Digital" loading="lazy">
+                        </div>
+                        <div class="artwork-card-info">
+                            <h3 class="artwork-card-title">Naturaleza Digital</h3>
+                            <div class="artwork-card-artist">Por Ana Ruiz</div>
+                            <div class="artwork-card-price">€850</div>
+                            <a href="#" class="btn-primary">Ver Detalles</a>
+                        </div>
+                    </article>
+
+                    <!-- Artwork 3 -->
+                    <article class="artwork-card">
+                        <div class="artwork-card-image">
+                            <img src="assets/svg/artwork-03.svg" alt="Geometría Emocional" loading="lazy">
+                        </div>
+                        <div class="artwork-card-info">
+                            <h3 class="artwork-card-title">Geometría Emocional</h3>
+                            <div class="artwork-card-artist">Por Luis Ferrer</div>
+                            <div class="artwork-card-price">€1,650</div>
+                            <a href="#" class="btn-primary">Ver Detalles</a>
+                        </div>
+                    </article>
+
+                    <!-- Artwork 4 -->
+                    <article class="artwork-card">
+                        <div class="artwork-card-image">
+                            <img src="assets/svg/artwork-04.svg" alt="Reflexiones Nocturnas" loading="lazy">
+                        </div>
+                        <div class="artwork-card-info">
+                            <h3 class="artwork-card-title">Reflexiones Nocturnas</h3>
+                            <div class="artwork-card-artist">Por Elena Vega</div>
+                            <div class="artwork-card-price">€2,100</div>
+                            <a href="#" class="btn-primary">Ver Detalles</a>
+                        </div>
+                    </article>
+
+                    <!-- Artwork 5 -->
+                    <article class="artwork-card">
+                        <div class="artwork-card-image">
+                            <img src="assets/svg/artwork-05.svg" alt="Colores del Alma" loading="lazy">
+                        </div>
+                        <div class="artwork-card-info">
+                            <h3 class="artwork-card-title">Colores del Alma</h3>
+                            <div class="artwork-card-artist">Por Roberto Silva</div>
+                            <div class="artwork-card-price">€1,400</div>
+                            <a href="#" class="btn-primary">Ver Detalles</a>
+                        </div>
+                    </article>
+
+                    <!-- Artwork 6 -->
+                    <article class="artwork-card">
+                        <div class="artwork-card-image">
+                            <img src="assets/svg/artwork-06.svg" alt="Horizonte Infinito" loading="lazy">
+                        </div>
+                        <div class="artwork-card-info">
+                            <h3 class="artwork-card-title">Horizonte Infinito</h3>
+                            <div class="artwork-card-artist">Por Patricia Morales</div>
+                            <div class="artwork-card-price">€1,800</div>
+                            <a href="#" class="btn-primary">Ver Detalles</a>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="cta-section">
+            <div class="cta-container">
+                <h2>¿Interesado en una pieza personalizada?</h2>
+                <p>Trabajamos con artistas para crear obras únicas según tus preferencias y espacio.</p>
+                <a href="#" class="btn-primary btn-large">Solicitar Comisión</a>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>ARTRA</h3>
+                <p>Galería especializada en arte contemporáneo y enmarcado premium desde 2020.</p>
+            </div>
+            
+            <div class="footer-section">
+                <h4>Navegación</h4>
+                <ul>
+                    <li><a href="home.html">Inicio</a></li>
+                    <li><a href="hwdi.html">Cómo Trabajamos</a></li>
+                    <li><a href="catalogue.html">Catálogo</a></li>
+                    <li><a href="artwork.html">Artwork</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h4>Contacto</h4>
+                <p>info@artra.com<br>+34 123 456 789</p>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>&copy; 2024 ARTRA. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+</body>
+</html> 
