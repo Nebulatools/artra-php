@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ARTRA - Gallery & Framing Studio</title>
-    <link rel="stylesheet" href="style.css">
+    <title>ARTRA - Curated Works and Printed Editions</title>
+    <link rel="stylesheet" href="styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
@@ -12,37 +12,33 @@
 <body>
     <!-- Header -->
     <header class="header">
-        <div class="header-content">
-            <div class="header-left">
-                <div class="menu-item">
-                    <span class="menu-text desktop-menu">MENU</span>
-                    <span class="menu-text mobile-menu">CATALOGUE</span>
+        <nav class="nav">
+            <div class="nav-left">
+                <button class="menu-btn desktop-hidden">MENU</button>
+            </div>
+            
+            <div class="nav-center">
+                <div class="logo">
+                    <svg class="logo-svg" viewBox="0 0 151 30" fill="none">
+                        <path d="M0 0h32.13v30H0z" fill="currentColor"/>
+                        <path d="M33.8 0h27.11v30H33.8z" fill="currentColor"/>
+                        <path d="M62.34 0h26.36v30H62.34z" fill="currentColor"/>
+                        <path d="M90.02 0h27.11v30H90.02z" fill="currentColor"/>
+                        <path d="M118.8 0h32.14v30H118.8z" fill="currentColor"/>
+                    </svg>
                 </div>
             </div>
             
-            <div class="logo">
-                <svg width="151" height="30" viewBox="0 0 151 30" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M0 30V0H32.13V30H0Z" fill="currentColor"/>
-                    <path d="M33.8 30V0H60.91V30H33.8Z" fill="currentColor"/>
-                    <path d="M62.34 30V0H88.7V30H62.34Z" fill="currentColor"/>
-                    <path d="M90.02 30V0H117.13V30H90.02Z" fill="currentColor"/>
-                    <path d="M118.8 30V0H150.94V30H118.8Z" fill="currentColor"/>
-                </svg>
+            <div class="nav-right">
+                <!-- Desktop navigation placeholder -->
             </div>
-            
-            <div class="header-right">
-                <div class="menu-item">
-                    <span class="menu-text desktop-menu">BAG ( 0 )</span>
-                    <span class="menu-text mobile-menu">CONTACT</span>
-                </div>
-            </div>
-        </div>
+        </nav>
     </header>
 
     <!-- Banner -->
     <section class="banner">
         <div class="banner-text">
-            <span class="banner-scroll">urated Works and Printed Editions . Framing and Mounting Studio. Curated Works and Printed Editions . Framing and Mounting Studio. Curated Works and Printed Editions . Framing and Mounting Studio. Curated Works and Printed Editions . Framing and Mounting Studio. Curated Works and Printed Editions . Framing and Mounting Studio. Curated Works and Printed Editions . Framing and Mounting Studio. Curated Works and Printed Editions . Framing and Mounting Studio</span>
+            Curated Works and Printed Editions . Framing and Mounting Studio. Curated Works and Printed Editions . Framing and Mounting Studio. Curated Works and Printed Editions . Framing and Mounting Studio. Curated Works and Printed Editions . Framing and Mounting Studio. Curated Works and Printed Editions . Framing and Mounting Studio. Curated Works and Printed Editions . Framing and Mounting Studio. Curated Works and Printed Editions . Framing and Mounting Studio
         </div>
     </section>
 
@@ -50,229 +46,208 @@
     <main class="main-content">
         <!-- Artwork Highlight -->
         <section class="artwork-highlight">
-            <div class="artwork-image">
-                <div class="placeholder-image large-image"></div>
-            </div>
-            <div class="artwork-details">
-                <div class="artwork-content">
-                    <div class="product-image">
-                        <div class="placeholder-image medium-image"></div>
-                    </div>
-                    <div class="product-details">
-                        <div class="product-specs">
-                            <h2 class="product-title">NEW FRAMES.</h2>
-                            <p class="product-name">Frame Name</p>
-                            <p class="product-description">Frame small description.</p>
-                        </div>
-                        <p class="product-edition">See frame.</p>
-                    </div>
+            <div class="artwork-container">
+                <div class="artwork-details">
+                    <h1 class="artwork-title">NEW FRAMES.</h1>
+                </div>
+                <div class="artwork-image">
+                    <div class="image-placeholder"></div>
                 </div>
             </div>
         </section>
 
-        <!-- Highlights -->
+        <!-- Highlights Section -->
         <section class="highlights">
-            <div class="highlight-card">
-                <div class="highlight-header">
-                    <h3 class="highlight-title">coming soon.<br>EXHIBIT 1.</h3>
+            <div class="highlights-grid">
+                <!-- Gallery Card -->
+                <div class="highlight-card">
+                    <div class="card-header">
+                        <h2 class="card-title">COMING SOON.<br>EXHIBIT 1.</h2>
+                    </div>
+                    <div class="card-image">
+                        <div class="image-placeholder highlight-img-1"></div>
+                        <div class="image-placeholder highlight-img-2"></div>
+                    </div>
                 </div>
-                <div class="highlight-image">
-                    <div class="placeholder-image"></div>
+
+                <!-- Catalogue Card -->
+                <div class="highlight-card">
+                    <div class="card-header">
+                        <h2 class="card-title">DISCOVER OUR<br>CATALOGUE.</h2>
+                    </div>
+                    <div class="card-image">
+                        <div class="image-placeholder catalogue-img"></div>
+                    </div>
                 </div>
-            </div>
-            
-            <div class="highlight-card">
-                <div class="highlight-header">
-                    <h3 class="highlight-title">DISCOVER OUR<br>CATALOGUE.</h3>
-                </div>
-                <div class="highlight-image">
-                    <div class="placeholder-image"></div>
-                </div>
-            </div>
-            
-            <div class="highlight-card">
-                <div class="highlight-header">
-                    <h3 class="highlight-title">coming soon.<br>ARTISTS & WORKS.</h3>
-                </div>
-                <div class="highlight-image">
-                    <div class="placeholder-image"></div>
+
+                <!-- Artists Card -->
+                <div class="highlight-card artists-card">
+                    <div class="card-header">
+                        <h2 class="card-title">coming soon.<br>ARTISTS & WORKS.</h2>
+                    </div>
+                    <div class="card-image">
+                        <div class="image-placeholder artists-img-1"></div>
+                        <div class="image-placeholder artists-img-2"></div>
+                        <div class="image-placeholder artists-img-3"></div>
+                    </div>
                 </div>
             </div>
         </section>
 
-        <!-- Top Picks -->
+        <!-- Top Picks Section -->
         <section class="top-picks">
             <h2 class="section-title">OUR TOP PICKS.</h2>
         </section>
 
         <!-- Frame Collection -->
         <section class="frame-collection">
-            <div class="frame-grid">
-                <div class="frame-item" data-frame="1">
+            <div class="frames-grid">
+                <div class="frame-item">
                     <div class="frame-image">
-                        <div class="placeholder-image product-image-1"></div>
+                        <div class="image-placeholder frame-1"></div>
                     </div>
                     <div class="frame-details">
-                        <div class="frame-specs">
-                            <h4 class="frame-title">Frame 1</h4>
-                            <p class="frame-description">Description</p>
-                        </div>
-                        <p class="frame-edition">Specs</p>
+                        <h3 class="frame-title">Frame 1</h3>
+                        <p class="frame-description">Description</p>
+                        <span class="frame-specs">Specs</span>
                     </div>
                 </div>
-                
-                <div class="frame-item" data-frame="2">
+
+                <div class="frame-item">
                     <div class="frame-image">
-                        <div class="placeholder-image product-image-2"></div>
+                        <div class="image-placeholder frame-2"></div>
                     </div>
                     <div class="frame-details">
-                        <div class="frame-specs">
-                            <h4 class="frame-title">Frame 2</h4>
-                            <p class="frame-description">Description</p>
-                        </div>
-                        <p class="frame-edition">Specs</p>
+                        <h3 class="frame-title">Frame 2</h3>
+                        <p class="frame-description">Description</p>
+                        <span class="frame-specs">Specs</span>
                     </div>
                 </div>
-                
-                <div class="frame-item" data-frame="3">
+
+                <div class="frame-item">
                     <div class="frame-image">
-                        <div class="placeholder-image product-image-3"></div>
+                        <div class="image-placeholder frame-3"></div>
                     </div>
                     <div class="frame-details">
-                        <div class="frame-specs">
-                            <h4 class="frame-title">Frame 3</h4>
-                            <p class="frame-description">Description</p>
-                        </div>
-                        <p class="frame-edition">Specs</p>
+                        <h3 class="frame-title">Frame 3</h3>
+                        <p class="frame-description">Description</p>
+                        <span class="frame-specs">Specs</span>
                     </div>
                 </div>
-                
-                <div class="frame-item" data-frame="4">
+
+                <div class="frame-item">
                     <div class="frame-image">
-                        <div class="placeholder-image product-image-4"></div>
+                        <div class="image-placeholder frame-4"></div>
                     </div>
                     <div class="frame-details">
-                        <div class="frame-specs">
-                            <h4 class="frame-title">Frame 4</h4>
-                            <p class="frame-description">Description</p>
-                        </div>
-                        <p class="frame-edition">Specs</p>
+                        <h3 class="frame-title">Frame 4</h3>
+                        <p class="frame-description">Description</p>
+                        <span class="frame-specs">Specs</span>
                     </div>
                 </div>
-                
-                <div class="frame-item" data-frame="5">
+
+                <div class="frame-item">
                     <div class="frame-image">
-                        <div class="placeholder-image product-image-5"></div>
+                        <div class="image-placeholder frame-5"></div>
                     </div>
                     <div class="frame-details">
-                        <div class="frame-specs">
-                            <h4 class="frame-title">Frame 5</h4>
-                            <p class="frame-description">Description</p>
-                        </div>
-                        <p class="frame-edition">Specs</p>
+                        <h3 class="frame-title">Frame 5</h3>
+                        <p class="frame-description">Description</p>
+                        <span class="frame-specs">Specs</span>
                     </div>
                 </div>
-                
-                <div class="frame-item" data-frame="6">
+
+                <div class="frame-item">
                     <div class="frame-image">
-                        <div class="placeholder-image product-image-6"></div>
+                        <div class="image-placeholder frame-6"></div>
                     </div>
                     <div class="frame-details">
-                        <div class="frame-specs">
-                            <h4 class="frame-title">Frame 6</h4>
-                            <p class="frame-description">Description</p>
-                        </div>
-                        <p class="frame-edition">Specs</p>
+                        <h3 class="frame-title">Frame 6</h3>
+                        <p class="frame-description">Description</p>
+                        <span class="frame-specs">Edition of 50</span>
                     </div>
                 </div>
-                
-                <div class="frame-item" data-frame="7">
+
+                <div class="frame-item">
                     <div class="frame-image">
-                        <div class="placeholder-image product-image-7"></div>
+                        <div class="image-placeholder frame-7"></div>
                     </div>
                     <div class="frame-details">
-                        <div class="frame-specs">
-                            <h4 class="frame-title">Frame 7</h4>
-                            <p class="frame-description">Description</p>
-                        </div>
-                        <p class="frame-edition">Specs</p>
+                        <h3 class="frame-title">Frame 7</h3>
+                        <p class="frame-description">Description</p>
+                        <span class="frame-specs">Specs</span>
                     </div>
                 </div>
-                
-                <div class="frame-item" data-frame="8">
+
+                <div class="frame-item">
                     <div class="frame-image">
-                        <div class="placeholder-image product-image-8"></div>
+                        <div class="image-placeholder frame-8"></div>
                     </div>
                     <div class="frame-details">
-                        <div class="frame-specs">
-                            <h4 class="frame-title">Frame 8</h4>
-                            <p class="frame-description">Description</p>
-                        </div>
-                        <p class="frame-edition">Specs</p>
+                        <h3 class="frame-title">Frame 8</h3>
+                        <p class="frame-description">Description</p>
+                        <span class="frame-specs">Specs</span>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Decorative Spacer -->
-        <section class="decorative-spacer">
+        <!-- Spacer with Design Elements -->
+        <section class="spacer-section">
             <div class="spacer-grid">
-                <!-- Grid pattern elements -->
-                <div class="spacer-item grid-lines"></div>
-                <div class="spacer-item grid-lines"></div>
-                <div class="spacer-item grid-lines"></div>
-                <div class="spacer-item circle"></div>
-                <div class="spacer-item circle"></div>
-                <div class="spacer-item"></div>
-                <div class="spacer-item grid-lines"></div>
-                <div class="spacer-item grid-lines"></div>
-                <div class="spacer-item grid-lines"></div>
+                <!-- Grid elements and design patterns -->
+                <div class="spacer-item grid-item"></div>
+                <div class="spacer-item circle-item"></div>
+                <div class="spacer-item line-item"></div>
                 <div class="spacer-item"></div>
                 <div class="spacer-item"></div>
-                <div class="spacer-item"></div>
-                <div class="spacer-item"></div>
-                <div class="spacer-item"></div>
-                <div class="spacer-item quote-box">
-                    <p>We cherish every chance to achieve this, employing artistic expression, narrative, and provocative public interventions.</p>
+                
+                <!-- Quote section -->
+                <div class="quote-section">
+                    <p class="quote-text">
+                        We cherish every chance to achieve this, employing artistic expression, 
+                        narrative, and provocative public interventions.
+                    </p>
                 </div>
             </div>
         </section>
 
-        <!-- Framing Studio Section -->
-        <section class="framing-studio">
-            <div class="studio-content">
-                <div class="studio-text">
-                    <div class="studio-intro">
-                        <h2 class="studio-title">Framing Studio</h2>
-                        <p class="studio-subtitle">Bespoke Artvisory</p>
+        <!-- Framing Highlight -->
+        <section class="framing-highlight">
+            <div class="content-wrapper">
+                <div class="text-content">
+                    <div class="intro-section">
+                        <h2 class="section-title">Framing Studio</h2>
+                        <p class="section-subtitle">Bespoke Artvisory</p>
                     </div>
-                    <p class="studio-description">Choose from our wide range of mouldings: anything from natural wood to gilded frames.<br><br>Window, surface or float mount it on a range of our acid-free mountcards.</p>
-                    <div class="studio-spacer">
-                        <!-- Decorative elements -->
-                    </div>
+                    <p class="section-description">
+                        Choose from our wide range of mouldings: anything from natural wood to gilded frames.
+                        <br><br>
+                        Window, surface or float mount it on a range of our acid-free mountcards.
+                    </p>
                     <button class="cta-button">Learn About Us</button>
                 </div>
-            </div>
-            <div class="studio-image">
-                <div class="placeholder-image"></div>
+                <div class="image-content">
+                    <div class="image-placeholder framing-img"></div>
+                </div>
             </div>
         </section>
 
-        <!-- Gallery Section -->
-        <section class="gallery-section">
-            <div class="gallery-image">
-                <div class="placeholder-image"></div>
-            </div>
-            <div class="gallery-content">
-                <div class="gallery-text">
-                    <div class="gallery-intro">
-                        <h2 class="gallery-title">Artra Gallery</h2>
-                        <p class="gallery-subtitle">Exclusive Art Exhibits</p>
+        <!-- Gallery Highlight -->
+        <section class="gallery-highlight">
+            <div class="content-wrapper">
+                <div class="image-content">
+                    <div class="image-placeholder gallery-img"></div>
+                </div>
+                <div class="text-content">
+                    <div class="intro-section">
+                        <h2 class="section-title">Artra Gallery</h2>
+                        <p class="section-subtitle">Exclusive Art Exhibits</p>
                     </div>
-                    <p class="gallery-description">We cherish every chance to achieve this, employing artistic expression, narrative, and provocative public interventions.</p>
-                    <div class="gallery-spacer">
-                        <!-- Decorative elements -->
-                    </div>
+                    <p class="section-description">
+                        We cherish every chance to achieve this, employing artistic expression, 
+                        narrative, and provocative public interventions.
+                    </p>
                     <button class="cta-button">Coming Soon</button>
                 </div>
             </div>
@@ -288,14 +263,21 @@
                         <h3 class="footer-title">Gallery & Framing Studio</h3>
                         <p class="footer-address">Av. José Vasconcelos 621</p>
                     </div>
-                    <p class="footer-description">We forge alliances with modern artists from all corners of the world to create unparalleled masterpieces of the utmost caliber.</p>
+                    <p class="footer-description">
+                        We forge alliances with modern artists from all corners of the world 
+                        to create unparalleled masterpieces of the utmost caliber.
+                    </p>
                 </div>
                 
                 <div class="footer-newsletter">
-                    <h4 class="newsletter-title">Subscribe to our Newsletter</h4>
+                    <h3 class="newsletter-title">Subscribe to our Newsletter</h3>
                     <div class="newsletter-input">
-                        <input type="email" placeholder="Enter Email" class="email-input">
-                        <button type="submit" class="submit-arrow">→</button>
+                        <input type="email" placeholder="Enter Email">
+                        <button type="submit">
+                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                                <path d="M8 1l7 7-7 7" stroke="currentColor" stroke-width="2"/>
+                            </svg>
+                        </button>
                     </div>
                 </div>
                 
@@ -303,27 +285,25 @@
             </div>
             
             <div class="footer-right">
-                <div class="footer-main-menu">
-                    <nav class="footer-nav">
-                        <a href="#" class="nav-link">FRAMING STUDIO</a>
-                        <a href="#" class="nav-link">ABOUT</a>
-                        <a href="#" class="nav-link">ARTWORKS</a>
-                        <a href="#" class="nav-link">ARTISTS</a>
-                        <a href="#" class="nav-link">PERSONALIZE</a>
-                        <a href="#" class="nav-link">GALLERY</a>
-                        <a href="#" class="nav-link">SEARCH</a>
-                    </nav>
-                </div>
-                
-                <div class="footer-disclaimers">
-                    <nav class="footer-nav">
-                        <a href="#" class="nav-link">TERMS & CONDITIONS</a>
-                        <a href="#" class="nav-link">PRIVACY</a>
-                        <a href="#" class="nav-link">COOKIES</a>
-                        <a href="#" class="nav-link">FAQ</a>
-                        <a href="#" class="nav-link">CONTACT</a>
-                        <a href="#" class="nav-link">INSTAGRAM</a>
-                    </nav>
+                <div class="footer-links">
+                    <div class="link-group">
+                        <a href="#" class="footer-link">FRAMING STUDIO</a>
+                        <a href="#" class="footer-link">ABOUT</a>
+                        <a href="#" class="footer-link">ARTWORKS</a>
+                        <a href="#" class="footer-link">ARTISTS</a>
+                        <a href="#" class="footer-link">PERSONALIZE</a>
+                        <a href="#" class="footer-link">GALLERY</a>
+                        <a href="#" class="footer-link">SEARCH</a>
+                    </div>
+                    
+                    <div class="link-group">
+                        <a href="#" class="footer-link">TERMS & CONDITIONS</a>
+                        <a href="#" class="footer-link">PRIVACY</a>
+                        <a href="#" class="footer-link">COOKIES</a>
+                        <a href="#" class="footer-link">FAQ</a>
+                        <a href="#" class="footer-link">CONTACT</a>
+                        <a href="#" class="footer-link">INSTAGRAM</a>
+                    </div>
                 </div>
             </div>
         </div>

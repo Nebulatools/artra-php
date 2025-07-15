@@ -1,0 +1,604 @@
+/* Reset y configuración base */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Importación de fuentes */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap');
+
+/* Variables CSS basadas en los datos de Figma */
+:root {
+    --color-background: #F2F2F2;
+    --color-text: #000000;
+    --color-white: #FFFFFF;
+    --color-cta: #EDF851;
+    
+    /* Tipografías de Figma */
+    --font-sohne: 'Inter', sans-serif; /* Sustituto para Sohne */
+    --font-century: 'Times New Roman', serif; /* Sustituto para Century Old Style Std */
+    
+    /* Tamaños de fuente desktop */
+    --font-size-title-desktop: 96px;
+    --font-size-coming-soon-desktop: 48px;
+    --font-size-body-desktop: 16px;
+    --font-size-small-desktop: 16px;
+    
+    /* Tamaños de fuente mobile */
+    --font-size-title-mobile: 60px;
+    --font-size-coming-soon-mobile: 36px;
+    --font-size-body-mobile: 14px;
+    --font-size-small-mobile: 14px;
+    
+    /* Dimensiones */
+    --desktop-width: 1440px;
+    --mobile-width: 390px;
+}
+
+/* Estilos base */
+body {
+    background-color: var(--color-background);
+    color: var(--color-text);
+    font-family: var(--font-century);
+    line-height: 1.1;
+    overflow-x: hidden;
+}
+
+/* Header */
+.header {
+    width: 100%;
+    border-bottom: 1px solid var(--color-text);
+}
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 24px;
+    max-width: var(--desktop-width);
+    margin: 0 auto;
+    gap: 1361px;
+}
+
+.header-left {
+    width: 80px;
+    display: flex;
+    gap: 30px;
+}
+
+.menu-item span {
+    font-family: var(--font-sohne);
+    font-weight: 500;
+    font-size: var(--font-size-body-desktop);
+    line-height: 1em;
+}
+
+.header-center .logotype {
+    width: 150.94px;
+    height: 30px;
+}
+
+.header-right {
+    width: 80px;
+    display: flex;
+    justify-content: flex-end;
+    gap: 30px;
+}
+
+/* Banner */
+.banner {
+    width: 100%;
+    padding: 16px 0;
+    border-bottom: 1px solid var(--color-text);
+}
+
+.banner-content {
+    max-width: var(--desktop-width);
+    margin: 0 auto;
+    padding: 0 24px;
+}
+
+.banner-text {
+    font-family: var(--font-century);
+    font-weight: 400;
+    font-size: var(--font-size-body-desktop);
+    line-height: 1.1;
+    text-align: center;
+}
+
+/* Main Content */
+.main-content {
+    max-width: var(--desktop-width);
+    margin: 0 auto;
+}
+
+/* Artworks Title Section */
+.artworks-title {
+    padding: 80px 40px 24px;
+    height: 204.19px;
+    display: flex;
+    align-items: flex-end;
+}
+
+.title-content {
+    display: flex;
+    align-items: flex-end;
+    gap: 24px;
+}
+
+.main-title {
+    font-family: var(--font-sohne);
+    font-weight: 500;
+    font-size: var(--font-size-title-desktop);
+    line-height: 0.9em;
+    letter-spacing: -1%;
+    text-transform: uppercase;
+}
+
+.title-icon {
+    width: 100px;
+    height: 100px;
+}
+
+/* Signature */
+.signature {
+    padding: 0 40px 80px;
+    height: 120px;
+    display: flex;
+    align-items: center;
+}
+
+.signature-content {
+    width: 246.17px;
+    height: 96px;
+}
+
+/* Coming Soon */
+.coming-soon {
+    width: 100%;
+    height: 91px;
+    border-top: 1px solid var(--color-text);
+    border-bottom: 1px solid var(--color-text);
+}
+
+.coming-soon-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+.coming-soon-title {
+    font-family: var(--font-sohne);
+    font-weight: 500;
+    font-size: var(--font-size-coming-soon-desktop);
+    line-height: 1em;
+    letter-spacing: -1%;
+    text-transform: uppercase;
+    padding: 24px 24px 24px 40px;
+}
+
+/* Products Grid */
+.products-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 340px);
+    gap: 0;
+    padding: 40px;
+    justify-content: space-between;
+}
+
+.product-card {
+    width: 340px;
+    height: 543px;
+}
+
+.product-frame {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    border: 1px solid var(--color-text);
+}
+
+.product-image {
+    width: 279px;
+    height: 435px;
+    margin: 23px 30px;
+    background-color: #ccc;
+    background-image: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjc5IiBoZWlnaHQ9IjQzNSIgdmlld0JveD0iMCAwIDI3OSA0MzUiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSIyNzkiIGhlaWdodD0iNDM1IiBmaWxsPSIjQ0NDIi8+Cjwvc3ZnPgo=');
+    background-size: cover;
+    background-position: center;
+}
+
+.product-details {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 16px 24px;
+    border-top: 1px solid var(--color-text);
+    background-color: var(--color-background);
+}
+
+.product-specs {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.artist-name {
+    font-family: var(--font-sohne);
+    font-weight: 500;
+    font-size: var(--font-size-body-desktop);
+    line-height: 1em;
+}
+
+.collection-name {
+    font-family: var(--font-century);
+    font-weight: 400;
+    font-size: var(--font-size-body-desktop);
+    line-height: 1em;
+}
+
+/* CTA Section */
+.cta-section {
+    width: 100%;
+    background-color: var(--color-cta);
+    border: 1px solid var(--color-text);
+}
+
+.cta-content {
+    max-width: var(--desktop-width);
+    margin: 0 auto;
+    padding: 16px 24px;
+}
+
+.cta-button {
+    background: none;
+    border: none;
+    font-family: var(--font-century);
+    font-weight: 400;
+    font-size: var(--font-size-body-desktop);
+    line-height: 1.1;
+    color: var(--color-text);
+    cursor: pointer;
+}
+
+/* Footer */
+.footer {
+    width: 100%;
+    border-top: 1px solid var(--color-text);
+}
+
+.footer-content {
+    max-width: var(--desktop-width);
+    margin: 0 auto;
+    display: flex;
+    justify-content: stretch;
+    align-items: stretch;
+    gap: 128px;
+    padding: 24px 40px;
+}
+
+.footer-left {
+    display: flex;
+    flex-direction: column;
+    gap: 128px;
+    flex: 1;
+}
+
+.footer-about {
+    display: flex;
+    flex-direction: column;
+    gap: 48px;
+}
+
+.about-section {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    width: 280px;
+}
+
+.about-header {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.studio-name {
+    font-family: var(--font-sohne);
+    font-weight: 500;
+    font-size: var(--font-size-body-desktop);
+    line-height: 1em;
+}
+
+.studio-address {
+    font-family: var(--font-century);
+    font-weight: 400;
+    font-size: var(--font-size-body-desktop);
+    line-height: 1em;
+}
+
+.about-description {
+    font-family: var(--font-century);
+    font-weight: 400;
+    font-size: var(--font-size-body-desktop);
+    line-height: 1.1;
+}
+
+.newsletter-section {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    width: 280px;
+}
+
+.newsletter-title {
+    font-family: var(--font-sohne);
+    font-weight: 500;
+    font-size: var(--font-size-body-desktop);
+    line-height: 1em;
+}
+
+.newsletter-input {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.input-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 8px;
+    padding: 0 8px 0 0;
+}
+
+.email-input {
+    background: none;
+    border: none;
+    font-family: var(--font-century);
+    font-weight: 400;
+    font-size: var(--font-size-body-desktop);
+    line-height: 1.1;
+    color: var(--color-text);
+    flex: 1;
+}
+
+.email-input::placeholder {
+    color: var(--color-text);
+}
+
+.input-line {
+    height: 1px;
+    background-color: var(--color-text);
+    width: 100%;
+}
+
+.copyright {
+    font-family: var(--font-sohne);
+    font-weight: 500;
+    font-size: var(--font-size-body-desktop);
+    line-height: 1em;
+}
+
+.footer-right {
+    display: flex;
+    gap: 128px;
+    flex: 1;
+}
+
+.footer-main, .footer-disclaimers {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.main-menu {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.footer-link {
+    font-family: var(--font-sohne);
+    font-weight: 500;
+    font-size: var(--font-size-body-desktop);
+    line-height: 1em;
+    color: var(--color-text);
+    text-decoration: none;
+    display: block;
+    padding: 1px 0;
+}
+
+.footer-link.active {
+    text-decoration: underline;
+}
+
+.footer-link:hover {
+    text-decoration: underline;
+}
+
+/* Responsive Design - Mobile */
+@media (max-width: 768px) {
+    /* Variables mobile */
+    .main-title {
+        font-size: var(--font-size-title-mobile);
+    }
+    
+    .coming-soon-title {
+        font-size: var(--font-size-coming-soon-mobile);
+    }
+    
+    .banner-text,
+    .menu-item span,
+    .artist-name,
+    .collection-name,
+    .cta-button {
+        font-size: var(--font-size-body-mobile);
+    }
+    
+    .studio-name,
+    .studio-address,
+    .about-description,
+    .newsletter-title,
+    .email-input,
+    .copyright,
+    .footer-link {
+        font-size: var(--font-size-small-mobile);
+    }
+
+    /* Header mobile */
+    .header-content {
+        gap: 0;
+        justify-content: space-between;
+    }
+    
+    .header-left,
+    .header-right {
+        width: 80px;
+    }
+
+    /* Banner mobile */
+    .banner-text {
+        line-height: 1.1;
+    }
+
+    /* Artworks title mobile */
+    .artworks-title {
+        padding: 24px 0px;
+        height: auto;
+        justify-content: flex-end;
+        align-items: flex-end;
+    }
+    
+    .title-content {
+        padding: 0 20px;
+        width: 100%;
+        justify-content: flex-end;
+    }
+    
+    .main-title {
+        width: 349px;
+        flex-shrink: 0;
+    }
+    
+    .title-icon {
+        width: 59px;
+        height: 59px;
+        flex-shrink: 0;
+    }
+
+    /* Signature mobile */
+    .signature {
+        padding: 0 24px 24px;
+        height: 109px;
+        justify-content: center;
+    }
+    
+    .signature-content {
+        width: 153.85px;
+        height: 60px;
+    }
+
+    /* Coming soon mobile */
+    .coming-soon {
+        height: 91px;
+    }
+    
+    .coming-soon-title {
+        padding: 24px 24px 24px 40px;
+    }
+
+    /* Products grid mobile */
+    .products-grid {
+        display: block;
+        padding: 24px;
+        width: 100%;
+        max-width: 390px;
+        margin: 0 auto;
+    }
+    
+    .product-card {
+        width: 340px;
+        height: 543px;
+        margin: 0 auto 24px;
+    }
+    
+    .product-card:last-child {
+        margin-bottom: 0;
+    }
+
+    /* CTA mobile */
+    .cta-content {
+        padding: 16px 24px;
+        width: 390px;
+        margin: 0 auto;
+    }
+
+    /* Footer mobile */
+    .footer-content {
+        flex-direction: column;
+        gap: 48px;
+        padding: 24px;
+        max-width: 390px;
+        margin: 0 auto;
+    }
+    
+    .footer-left {
+        order: 2;
+        gap: 128px;
+    }
+    
+    .footer-right {
+        order: 1;
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    .about-section,
+    .newsletter-section {
+        width: 280px;
+    }
+    
+    .newsletter-section {
+        gap: 8px;
+    }
+}
+
+/* Ajustes específicos para pantallas muy pequeñas */
+@media (max-width: 390px) {
+    .products-grid,
+    .cta-content,
+    .footer-content {
+        width: 100%;
+        max-width: 100%;
+    }
+    
+    .product-card {
+        width: 100%;
+        max-width: 340px;
+    }
+    
+    .main-title {
+        width: 100%;
+        max-width: 349px;
+    }
+}
+
+/* Animaciones y transiciones */
+.cta-button:hover {
+    opacity: 0.8;
+    transition: opacity 0.3s ease;
+}
+
+.footer-link:hover {
+    transition: text-decoration 0.2s ease;
+}
+
+.menu-item:hover {
+    opacity: 0.8;
+    transition: opacity 0.3s ease;
+    cursor: pointer;
+}

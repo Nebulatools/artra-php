@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Artworks - ARTRA</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-container">
+            <button class="menu-btn" id="menuBtn">
+                <span class="menu-line"></span>
+                <span class="menu-line"></span>
+                <span class="menu-line"></span>
+            </button>
+            <div class="logo">
+                <span class="logo-text">ARTRA</span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile Menu Overlay -->
+    <div class="menu-overlay" id="menuOverlay">
+        <div class="menu-content">
+            <button class="menu-close" id="menuClose">&times;</button>
+            <nav class="menu-nav">
+                <a href="#" class="menu-link">Home</a>
+                <a href="#" class="menu-link">How we do it</a>
+                <a href="#" class="menu-link">Our Catalogue</a>
+                <a href="#" class="menu-link">Artworks</a>
+                <a href="#" class="menu-link">Gallery</a>
+                <a href="#" class="menu-link">Contact</a>
+            </nav>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <main class="main">
+        <!-- Banner -->
+        <section class="banner">
+            <div class="banner-content">
+                <div class="banner-text">
+                    <span class="banner-scroll">ARTWORKS • CONTEMPORARY PIECES • CURATED SELECTION • EXCLUSIVE COLLECTION • MODERN ART • TIMELESS DESIGNS • </span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Title Section -->
+        <section class="title-section">
+            <div class="title-container">
+                <h1 class="main-title">ARTWORKS</h1>
+                <div class="title-icon">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <rect x="3" y="3" width="18" height="18" rx="2"/>
+                        <path d="M9 9L15 15"/>
+                        <path d="M15 9L9 15"/>
+                    </svg>
+                </div>
+            </div>
+        </section>
+
+        <!-- Filter Section -->
+        <section class="filter-section">
+            <div class="filter-container">
+                <div class="filter-controls">
+                    <button class="filter-btn active" data-filter="all">All Artworks</button>
+                    <button class="filter-btn" data-filter="paintings">Paintings</button>
+                    <button class="filter-btn" data-filter="sculptures">Sculptures</button>
+                    <button class="filter-btn" data-filter="digital">Digital Art</button>
+                    <button class="filter-btn" data-filter="photography">Photography</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Artworks Grid -->
+        <section class="artworks-section">
+            <div class="artworks-container">
+                <div class="artworks-grid" id="artworksGrid">
+                    <!-- Artwork Item 1 -->
+                    <article class="artwork-item" data-category="paintings">
+                        <div class="artwork-image">
+                            <div class="artwork-placeholder">
+                                <span class="artwork-placeholder-text">Artwork 1</span>
+                            </div>
+                        </div>
+                        <div class="artwork-info">
+                            <h3 class="artwork-title">Abstract Horizon</h3>
+                            <p class="artwork-artist">Maria Rodriguez</p>
+                            <p class="artwork-medium">Oil on Canvas</p>
+                            <p class="artwork-dimensions">120 x 90 cm</p>
+                        </div>
+                    </article>
+
+                    <!-- Artwork Item 2 -->
+                    <article class="artwork-item" data-category="sculptures">
+                        <div class="artwork-image">
+                            <div class="artwork-placeholder">
+                                <span class="artwork-placeholder-text">Artwork 2</span>
+                            </div>
+                        </div>
+                        <div class="artwork-info">
+                            <h3 class="artwork-title">Urban Flow</h3>
+                            <p class="artwork-artist">James Chen</p>
+                            <p class="artwork-medium">Bronze</p>
+                            <p class="artwork-dimensions">45 x 30 x 25 cm</p>
+                        </div>
+                    </article>
+
+                    <!-- Artwork Item 3 -->
+                    <article class="artwork-item" data-category="digital">
+                        <div class="artwork-image">
+                            <div class="artwork-placeholder">
+                                <span class="artwork-placeholder-text">Artwork 3</span>
+                            </div>
+                        </div>
+                        <div class="artwork-info">
+                            <h3 class="artwork-title">Digital Dreams</h3>
+                            <p class="artwork-artist">Alex Thompson</p>
+                            <p class="artwork-medium">Digital Print</p>
+                            <p class="artwork-dimensions">100 x 70 cm</p>
+                        </div>
+                    </article>
+
+                    <!-- Artwork Item 4 -->
+                    <article class="artwork-item" data-category="paintings">
+                        <div class="artwork-image">
+                            <div class="artwork-placeholder">
+                                <span class="artwork-placeholder-text">Artwork 4</span>
+                            </div>
+                        </div>
+                        <div class="artwork-info">
+                            <h3 class="artwork-title">Serene Landscape</h3>
+                            <p class="artwork-artist">Sarah Williams</p>
+                            <p class="artwork-medium">Acrylic on Canvas</p>
+                            <p class="artwork-dimensions">80 x 60 cm</p>
+                        </div>
+                    </article>
+
+                    <!-- Artwork Item 5 -->
+                    <article class="artwork-item" data-category="photography">
+                        <div class="artwork-image">
+                            <div class="artwork-placeholder">
+                                <span class="artwork-placeholder-text">Artwork 5</span>
+                            </div>
+                        </div>
+                        <div class="artwork-info">
+                            <h3 class="artwork-title">City Lights</h3>
+                            <p class="artwork-artist">David Kim</p>
+                            <p class="artwork-medium">Fine Art Photography</p>
+                            <p class="artwork-dimensions">90 x 60 cm</p>
+                        </div>
+                    </article>
+
+                    <!-- Artwork Item 6 -->
+                    <article class="artwork-item" data-category="sculptures">
+                        <div class="artwork-image">
+                            <div class="artwork-placeholder">
+                                <span class="artwork-placeholder-text">Artwork 6</span>
+                            </div>
+                        </div>
+                        <div class="artwork-info">
+                            <h3 class="artwork-title">Organic Form</h3>
+                            <p class="artwork-artist">Elena Popov</p>
+                            <p class="artwork-medium">Ceramic</p>
+                            <p class="artwork-dimensions">35 x 35 x 40 cm</p>
+                        </div>
+                    </article>
+
+                    <!-- Artwork Item 7 -->
+                    <article class="artwork-item" data-category="digital">
+                        <div class="artwork-image">
+                            <div class="artwork-placeholder">
+                                <span class="artwork-placeholder-text">Artwork 7</span>
+                            </div>
+                        </div>
+                        <div class="artwork-info">
+                            <h3 class="artwork-title">Neon Genesis</h3>
+                            <p class="artwork-artist">Marco Silva</p>
+                            <p class="artwork-medium">Digital Art</p>
+                            <p class="artwork-dimensions">150 x 100 cm</p>
+                        </div>
+                    </article>
+
+                    <!-- Artwork Item 8 -->
+                    <article class="artwork-item" data-category="paintings">
+                        <div class="artwork-image">
+                            <div class="artwork-placeholder">
+                                <span class="artwork-placeholder-text">Artwork 8</span>
+                            </div>
+                        </div>
+                        <div class="artwork-info">
+                            <h3 class="artwork-title">Color Symphony</h3>
+                            <p class="artwork-artist">Lisa Zhang</p>
+                            <p class="artwork-medium">Mixed Media</p>
+                            <p class="artwork-dimensions">110 x 85 cm</p>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Load More Section -->
+        <section class="load-more-section">
+            <div class="load-more-container">
+                <button class="load-more-btn" id="loadMoreBtn">
+                    <span class="load-more-text">Load More Artworks</span>
+                    <span class="load-more-icon">↓</span>
+                </button>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3 class="footer-title">Newsletter</h3>
+                    <p class="footer-text">Stay updated with our latest artworks and exhibitions</p>
+                    <form class="newsletter-form" id="newsletterForm">
+                        <input type="email" class="newsletter-input" placeholder="Enter your email" required>
+                        <button type="submit" class="newsletter-btn">Subscribe</button>
+                    </form>
+                </div>
+                <div class="footer-section">
+                    <h3 class="footer-title">Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="#" class="footer-link">Home</a></li>
+                        <li><a href="#" class="footer-link">How we do it</a></li>
+                        <li><a href="#" class="footer-link">Our Catalogue</a></li>
+                        <li><a href="#" class="footer-link">Artworks</a></li>
+                        <li><a href="#" class="footer-link">Gallery</a></li>
+                        <li><a href="#" class="footer-link">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3 class="footer-title">Contact</h3>
+                    <p class="footer-text">info@artra.com</p>
+                    <p class="footer-text">+1 (555) 123-4567</p>
+                    <div class="footer-social">
+                        <a href="#" class="social-link">Instagram</a>
+                        <a href="#" class="social-link">Facebook</a>
+                        <a href="#" class="social-link">Twitter</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p class="footer-copyright">&copy; 2024 ARTRA. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

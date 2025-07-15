@@ -1,0 +1,662 @@
+/* Import Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap');
+
+/* Custom font faces for project fonts */
+@font-face {
+    font-family: 'Sohne';
+    src: url('../../../assets/fonts/Sohne-Kraftig.otf') format('opentype');
+    font-weight: 500;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Century Old Style Std';
+    src: url('../../../assets/fonts/CenturyOldStyleStd-Regular.ttf') format('truetype');
+    font-weight: 400;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Century Old Style Std';
+    src: url('../../../assets/fonts/CenturyOldStyleStd-Italic.ttf') format('truetype');
+    font-weight: 400;
+    font-style: italic;
+    font-display: swap;
+}
+
+/* Reset and base styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Century Old Style Std', serif;
+    background-color: #F2F2F2;
+    color: #000000;
+    line-height: 1.1;
+    overflow-x: hidden;
+}
+
+/* Header Styles */
+.header {
+    border-bottom: 1px solid #000000;
+}
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 24px;
+    gap: 1361px;
+}
+
+.header-left,
+.header-right {
+    display: flex;
+    gap: 30px;
+    width: 80px;
+}
+
+.header-right {
+    justify-content: flex-end;
+}
+
+.menu-item {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.menu-text {
+    font-family: 'Sohne', sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 1em;
+    text-align: left;
+}
+
+.logotype {
+    width: 150.94px;
+    height: 30px;
+    color: #000000;
+}
+
+/* Banner Styles */
+.banner {
+    border-bottom: 1px solid #000000;
+    padding: 16px 0;
+    gap: 24px;
+}
+
+.banner-text {
+    font-family: 'Century Old Style Std', serif;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 1.1em;
+    text-align: center;
+    color: #000000;
+    padding: 0 24px;
+}
+
+/* Main Content */
+.main-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+/* Page Title Section */
+.page-title-section {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.page-title-content {
+    display: flex;
+    align-items: flex-end;
+    padding: 80px 40px 24px;
+    width: 100%;
+    justify-content: flex-start;
+}
+
+.page-title {
+    font-family: 'Sohne', sans-serif;
+    font-weight: 500;
+    font-size: 96px;
+    line-height: 0.9em;
+    letter-spacing: -1%;
+    color: #000000;
+    margin: 0;
+}
+
+.title-decorations {
+    display: flex;
+    align-items: center;
+    margin-left: auto;
+}
+
+.decoration-vector,
+.layer-decoration {
+    width: 100px;
+    height: 100px;
+    color: #000000;
+}
+
+.layer-decoration {
+    margin-left: -100px;
+}
+
+/* Signature Section */
+.signature-section {
+    display: flex;
+    padding: 0 40px 80px;
+    width: 100%;
+}
+
+.signature {
+    width: 246.17px;
+    height: 96px;
+    color: #000000;
+}
+
+/* Categories Section */
+.categories-section {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.category-item {
+    width: 100%;
+    border-bottom: 1px solid #000000;
+}
+
+.category-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.category-header {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 24px 24px 24px 40px;
+    width: 100%;
+    height: 91px;
+}
+
+.category-title {
+    font-family: 'Sohne', sans-serif;
+    font-weight: 500;
+    font-size: 48px;
+    line-height: 1em;
+    letter-spacing: -1%;
+    text-transform: uppercase;
+    color: #000000;
+    margin: 0;
+}
+
+/* Decorative Grid */
+.decorative-grid {
+    width: 100%;
+    position: relative;
+}
+
+.grid-container {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    height: 629px;
+}
+
+.grid-item {
+    width: 90px;
+    height: 90px;
+    border: 1px solid #000000;
+    position: relative;
+}
+
+.grid-item.has-line-v::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 0;
+    height: 100%;
+    border-left: 1px solid #000000;
+}
+
+.grid-item.has-line-h::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 100%;
+    height: 0;
+    border-top: 1px solid #000000;
+}
+
+.grid-item.has-circle::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 1px solid #000000;
+    border-radius: 50%;
+}
+
+.grid-item.has-arc::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 200%;
+    height: 100%;
+    border: 1px solid #000000;
+    border-radius: 50%;
+}
+
+.grid-item.has-arc.right::after {
+    left: -100%;
+}
+
+/* Quote Section */
+.quote-section {
+    position: absolute;
+    top: 225px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 180px;
+    height: 180px;
+    background-color: #F2F2F2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 24px;
+    border: 1px solid #000000;
+}
+
+.quote-text {
+    font-family: 'Century Old Style Std', serif;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 1.1em;
+    text-align: center;
+    color: #000000;
+}
+
+/* Footer Styles */
+.footer {
+    border-top: 1px solid #000000;
+    background-color: #F2F2F2;
+    width: 100%;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    gap: 128px;
+    padding: 24px 40px;
+}
+
+.footer-left {
+    display: flex;
+    flex-direction: column;
+    gap: 128px;
+    flex: 1;
+}
+
+.about-newsletter {
+    display: flex;
+    flex-direction: column;
+    gap: 48px;
+}
+
+.about-section {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    width: 280px;
+}
+
+.company-info {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.company-title {
+    font-family: 'Sohne', sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 1em;
+    color: #000000;
+}
+
+.company-address {
+    font-family: 'Century Old Style Std', serif;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 1em;
+    color: #000000;
+}
+
+.company-description {
+    font-family: 'Century Old Style Std', serif;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 1.1em;
+    color: #000000;
+}
+
+.newsletter-section {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    width: 280px;
+}
+
+.newsletter-title {
+    font-family: 'Sohne', sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 1em;
+    color: #000000;
+}
+
+.newsletter-input {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.input-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 8px;
+    padding-right: 8px;
+}
+
+.email-input {
+    background: none;
+    border: none;
+    font-family: 'Century Old Style Std', serif;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 1.1em;
+    color: #000000;
+    flex: 1;
+    outline: none;
+}
+
+.email-input::placeholder {
+    color: #000000;
+}
+
+.arrow-icon {
+    width: 16px;
+    height: 16px;
+    color: #000000;
+}
+
+.input-line {
+    width: 100%;
+    height: 1px;
+    background-color: #000000;
+}
+
+.copyright {
+    font-family: 'Sohne', sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 1em;
+    color: #000000;
+}
+
+.footer-right {
+    display: flex;
+    gap: 128px;
+    flex: 1;
+}
+
+.footer-main-menu,
+.footer-disclaimers {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.footer-menu-item {
+    font-family: 'Sohne', sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 1em;
+    color: #000000;
+    cursor: pointer;
+}
+
+.footer-menu-item:hover {
+    opacity: 0.7;
+}
+
+/* Mobile Styles */
+@media (max-width: 768px) {
+    /* Header Mobile */
+    .header-content {
+        gap: 0;
+        padding: 24px;
+    }
+    
+    .header-left,
+    .header-right {
+        width: 80px;
+    }
+    
+    .menu-text {
+        font-size: 14px;
+    }
+    
+    /* Banner Mobile */
+    .banner-text {
+        font-size: 14px;
+        line-height: 1.1em;
+    }
+    
+    /* Page Title Mobile */
+    .page-title-content {
+        padding: 24px 20px;
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+    }
+    
+    .page-title {
+        font-size: 60px;
+        line-height: 0.9em;
+        text-align: left;
+        width: 349px;
+        white-space: pre-line;
+    }
+    
+    .title-decorations {
+        margin-left: 0;
+    }
+    
+    .decoration-vector,
+    .layer-decoration {
+        width: 59px;
+        height: 59px;
+    }
+    
+    /* Signature Mobile */
+    .signature-section {
+        padding: 0 24px 24px;
+        gap: 10px;
+    }
+    
+    .signature {
+        width: 153.85px;
+        height: 60px;
+    }
+    
+    /* Categories Mobile */
+    .category-header {
+        padding: 24px 24px 24px 40px;
+        height: 91px;
+    }
+    
+    .category-title {
+        font-size: 36px;
+    }
+    
+    /* Decorative Grid Mobile */
+    .grid-container {
+        height: auto;
+        justify-content: center;
+        padding: 0 24px;
+    }
+    
+    .grid-item {
+        width: 65px;
+        height: 65px;
+    }
+    
+    .quote-section {
+        position: static;
+        width: 260px;
+        height: 195px;
+        margin: 24px auto;
+        transform: none;
+        top: auto;
+        left: auto;
+    }
+    
+    /* Footer Mobile */
+    .footer-content {
+        flex-direction: column;
+        gap: 48px;
+        padding: 24px;
+    }
+    
+    .footer-left {
+        gap: 48px;
+    }
+    
+    .footer-right {
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    .footer-main-menu {
+        gap: 10px;
+    }
+    
+    .footer-disclaimers {
+        gap: 10px;
+    }
+    
+    .footer-menu-item,
+    .company-title,
+    .newsletter-title,
+    .copyright {
+        font-size: 14px;
+    }
+    
+    .company-address,
+    .company-description,
+    .email-input {
+        font-size: 14px;
+    }
+    
+    .newsletter-section {
+        gap: 8px;
+    }
+    
+    .about-section {
+        width: 100%;
+    }
+    
+    .newsletter-section {
+        width: 100%;
+    }
+}
+
+/* Extra small screens */
+@media (max-width: 390px) {
+    .page-title {
+        font-size: 50px;
+        width: 100%;
+    }
+    
+    .header-content {
+        padding: 20px;
+    }
+    
+    .banner-text {
+        padding: 0 20px;
+    }
+    
+    .page-title-content {
+        padding: 20px;
+    }
+    
+    .signature-section {
+        padding: 0 20px 20px;
+    }
+    
+    .grid-container {
+        padding: 0 20px;
+    }
+    
+    .footer-content {
+        padding: 20px;
+    }
+}
+
+/* Animations */
+.category-item {
+    transition: background-color 0.3s ease;
+}
+
+.category-item:hover {
+    background-color: rgba(0, 0, 0, 0.05);
+}
+
+.footer-menu-item {
+    transition: opacity 0.3s ease;
+}
+
+.email-input {
+    transition: opacity 0.3s ease;
+}
+
+.email-input:focus {
+    opacity: 0.7;
+}
+
+/* Print styles */
+@media print {
+    .header,
+    .footer {
+        display: none;
+    }
+    
+    .main-content {
+        padding: 0;
+    }
+    
+    .decorative-grid {
+        page-break-inside: avoid;
+    }
+}

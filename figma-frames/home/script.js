@@ -1,383 +1,379 @@
 // ARTRA Home Page JavaScript
 document.addEventListener('DOMContentLoaded', function() {
     
-    // Header scroll behavior
-    const header = document.querySelector('.header');
+    // Mobile Menu Toggle
+    const mobileMenuBtn = document.querySelector('.menu-btn');
+    const nav = document.querySelector('.nav');
+    let mobileMenuOpen = false;
+
+    if (mobileMenuBtn) {
+        mobileMenuBtn.addEventListener('click', function() {
+            mobileMenuOpen = !mobileMenuOpen;
+            
+            if (mobileMenuOpen) {
+                mobileMenuBtn.textContent = 'CLOSE';
+                // Add mobile menu functionality here
+                console.log('Mobile menu opened');
+            } else {
+                mobileMenuBtn.textContent = 'MENU';
+                console.log('Mobile menu closed');
+            }
+        });
+    }
+
+    // Smooth Scrolling for Internal Links
+    const links = document.querySelectorAll('a[href^="#"]');
+    links.forEach(link => {
+        link.addEventListener('click', function(e) {
+            e.preventDefault();
+            const targetId = this.getAttribute('href').substring(1);
+            const targetElement = document.getElementById(targetId);
+            
+            if (targetElement) {
+                const headerHeight = document.querySelector('.header').offsetHeight;
+                const targetPosition = targetElement.offsetTop - headerHeight;
+                
+                window.scrollTo({
+                    top: targetPosition,
+                    behavior: 'smooth'
+                });
+            }
+        });
+    });
+
+    // Header Scroll Effect
     let lastScrollTop = 0;
-    
+    const header = document.querySelector('.header');
+
     window.addEventListener('scroll', function() {
         const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
         
-        if (scrollTop > lastScrollTop && scrollTop > 100) {
-            // Scrolling down
-            header.style.transform = 'translateY(-100%)';
+        // Change header appearance on scroll
+        if (scrollTop > 100) {
+            header.style.background = 'rgba(242, 242, 242, 0.98)';
+            header.style.boxShadow = '0 2px 10px rgba(0,0,0,0.1)';
         } else {
-            // Scrolling up
-            header.style.transform = 'translateY(0)';
+            header.style.background = 'rgba(242, 242, 242, 0.95)';
+            header.style.boxShadow = 'none';
         }
-        
-        lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
+
+        lastScrollTop = scrollTop;
     });
-    
-    // Add smooth transition to header
-    header.style.transition = 'transform 0.3s ease-in-out';
-    
-    // Banner scroll animation enhancement
-    const bannerText = document.querySelector('.banner-scroll');
-    if (bannerText) {
-        // Duplicate the text for seamless scrolling
-        const text = bannerText.textContent;
-        bannerText.innerHTML = text + ' ' + text + ' ' + text;
-    }
-    
-    // Frame collection hover effects
+
+    // Frame Item Interactions
     const frameItems = document.querySelectorAll('.frame-item');
-    
     frameItems.forEach(item => {
-        item.addEventListener('mouseenter', function() {
-            this.style.transform = 'translateY(-4px)';
-            this.style.transition = 'transform 0.3s ease';
-        });
-        
-        item.addEventListener('mouseleave', function() {
-            this.style.transform = 'translateY(0)';
-        });
-        
-        // Add click handler for frame items
         item.addEventListener('click', function() {
-            const frameNumber = this.dataset.frame;
-            console.log(`Frame ${frameNumber} clicked`);
-            // Here you could add navigation to product detail page
+            const frameTitle = this.querySelector('.frame-title').textContent;
+            showNotification(`Selected: ${frameTitle}`, 'info');
+            
+            // Add selection visual feedback
+            this.style.transform = 'scale(0.98)';
+            setTimeout(() => {
+                this.style.transform = '';
+            }, 150);
+        });
+
+        // Add hover sound effect (optional)
+        item.addEventListener('mouseenter', function() {
+            // Add subtle visual feedback
+            this.style.boxShadow = '0 8px 25px rgba(0,0,0,0.15)';
+        });
+
+        item.addEventListener('mouseleave', function() {
+            this.style.boxShadow = '';
         });
     });
-    
-    // Highlight cards hover effects
+
+    // Highlight Card Interactions
     const highlightCards = document.querySelectorAll('.highlight-card');
-    
     highlightCards.forEach(card => {
-        card.addEventListener('mouseenter', function() {
-            this.style.transform = 'translateY(-2px)';
-            this.style.transition = 'transform 0.3s ease';
-            this.style.boxShadow = '0 4px 20px rgba(0, 0, 0, 0.1)';
-        });
-        
-        card.addEventListener('mouseleave', function() {
-            this.style.transform = 'translateY(0)';
-            this.style.boxShadow = 'none';
+        card.addEventListener('click', function() {
+            const cardTitle = this.querySelector('.card-title').textContent.replace(/\s+/g, ' ').trim();
+            showNotification(`Exploring: ${cardTitle}`, 'info');
         });
     });
-    
-    // CTA button interactions
+
+    // CTA Button Interactions
     const ctaButtons = document.querySelectorAll('.cta-button');
-    
     ctaButtons.forEach(button => {
-        button.addEventListener('click', function(e) {
-            e.preventDefault();
+        button.addEventListener('click', function() {
+            const buttonText = this.textContent;
+            showNotification(`${buttonText} - Coming Soon!`, 'success');
             
             // Add click animation
             this.style.transform = 'scale(0.95)';
             setTimeout(() => {
-                this.style.transform = 'scale(1)';
+                this.style.transform = '';
             }, 150);
-            
-            const buttonText = this.textContent.trim();
-            
-            if (buttonText === 'Learn About Us') {
-                console.log('Navigate to About page');
-                // window.location.href = '/about';
-            } else if (buttonText === 'Coming Soon') {
-                console.log('Coming Soon clicked');
-                // Show coming soon modal or message
-                showComingSoonMessage();
-            }
         });
     });
-    
-    // Newsletter form handling
-    const emailInput = document.querySelector('.email-input');
-    const submitArrow = document.querySelector('.submit-arrow');
-    
-    if (emailInput && submitArrow) {
-        submitArrow.addEventListener('click', function(e) {
+
+    // Newsletter Form Handler
+    const newsletterForm = document.querySelector('.newsletter-input');
+    const newsletterInput = document.querySelector('.newsletter-input input');
+    const newsletterButton = document.querySelector('.newsletter-input button');
+
+    if (newsletterButton) {
+        newsletterButton.addEventListener('click', function(e) {
             e.preventDefault();
-            handleNewsletterSubmit();
-        });
-        
-        emailInput.addEventListener('keypress', function(e) {
-            if (e.key === 'Enter') {
-                e.preventDefault();
-                handleNewsletterSubmit();
+            
+            const email = newsletterInput.value.trim();
+            
+            if (!email) {
+                showNotification('Please enter your email address', 'error');
+                return;
             }
-        });
-    }
-    
-    function handleNewsletterSubmit() {
-        const email = emailInput.value.trim();
-        
-        if (!email) {
-            showMessage('Please enter your email address');
-            return;
-        }
-        
-        if (!isValidEmail(email)) {
-            showMessage('Please enter a valid email address');
-            return;
-        }
-        
-        // Simulate newsletter subscription
-        console.log('Newsletter subscription:', email);
-        showMessage('Thank you for subscribing!');
-        emailInput.value = '';
-    }
-    
-    function isValidEmail(email) {
-        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        return emailRegex.test(email);
-    }
-    
-    function showComingSoonMessage() {
-        showMessage('Coming Soon! Stay tuned for updates.');
-    }
-    
-    function showMessage(message) {
-        // Create a simple message overlay
-        const messageDiv = document.createElement('div');
-        messageDiv.textContent = message;
-        messageDiv.style.cssText = `
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            background: var(--accent-color);
-            color: var(--text-color);
-            padding: 20px 30px;
-            border: 1px solid var(--border-color);
-            z-index: 1000;
-            font-family: var(--font-secondary);
-            font-size: 16px;
-            line-height: 1.1em;
-            text-align: center;
-            opacity: 0;
-            transition: opacity 0.3s ease;
-        `;
-        
-        document.body.appendChild(messageDiv);
-        
-        // Animate in
-        setTimeout(() => {
-            messageDiv.style.opacity = '1';
-        }, 10);
-        
-        // Remove after 3 seconds
-        setTimeout(() => {
-            messageDiv.style.opacity = '0';
+
+            if (!isValidEmail(email)) {
+                showNotification('Please enter a valid email address', 'error');
+                return;
+            }
+
+            // Simulate form submission
+            newsletterButton.innerHTML = '<span style="opacity:0.5">Sending...</span>';
+            newsletterInput.disabled = true;
+
             setTimeout(() => {
-                document.body.removeChild(messageDiv);
-            }, 300);
-        }, 3000);
+                showNotification('Thank you for subscribing!', 'success');
+                newsletterInput.value = '';
+                newsletterInput.disabled = false;
+                newsletterButton.innerHTML = `
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                        <path d="M8 1l7 7-7 7" stroke="currentColor" stroke-width="2"/>
+                    </svg>
+                `;
+            }, 2000);
+        });
     }
-    
-    // Navigation links
-    const navLinks = document.querySelectorAll('.nav-link');
-    
-    navLinks.forEach(link => {
-        link.addEventListener('click', function(e) {
-            e.preventDefault();
-            const linkText = this.textContent.trim();
-            console.log(`Navigation: ${linkText}`);
-            
-            // Add navigation logic here
-            switch(linkText) {
-                case 'FRAMING STUDIO':
-                    console.log('Navigate to Framing Studio');
-                    break;
-                case 'ABOUT':
-                    console.log('Navigate to About');
-                    break;
-                case 'ARTWORKS':
-                    console.log('Navigate to Artworks');
-                    break;
-                case 'ARTISTS':
-                    console.log('Navigate to Artists');
-                    break;
-                case 'GALLERY':
-                    console.log('Navigate to Gallery');
-                    break;
-                case 'CONTACT':
-                    console.log('Navigate to Contact');
-                    break;
-                case 'INSTAGRAM':
-                    window.open('https://instagram.com', '_blank');
-                    break;
-                default:
-                    console.log(`Navigate to: ${linkText}`);
+
+    // Enter key support for newsletter
+    if (newsletterInput) {
+        newsletterInput.addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                newsletterButton.click();
             }
         });
+    }
+
+    // Artwork Image Loading Simulation
+    const artworkImage = document.querySelector('.artwork-image .image-placeholder');
+    if (artworkImage) {
+        setTimeout(() => {
+            artworkImage.style.background = 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)';
+        }, 1000);
+    }
+
+    // Frame Images Loading Simulation
+    const frameImages = document.querySelectorAll('.frame-image .image-placeholder');
+    frameImages.forEach((img, index) => {
+        setTimeout(() => {
+            img.style.opacity = '1';
+            img.style.transform = 'scale(1)';
+        }, index * 200);
     });
-    
-    // Menu items in header
-    const menuItems = document.querySelectorAll('.menu-item');
-    
-    menuItems.forEach(item => {
-        item.addEventListener('click', function() {
-            const menuText = this.querySelector('.menu-text:not([style*="display: none"])');
-            if (menuText) {
-                const text = menuText.textContent.trim();
-                console.log(`Menu clicked: ${text}`);
-                
-                if (text === 'MENU' || text === 'CATALOGUE') {
-                    // Toggle mobile menu or navigate to catalogue
-                    console.log('Toggle menu/catalogue');
-                } else if (text === 'BAG ( 0 )' || text === 'CONTACT') {
-                    console.log('Bag or contact clicked');
-                }
-            }
-        });
-    });
-    
-    // Intersection Observer for animations
+
+    // Intersection Observer for Scroll Animations
     const observerOptions = {
         threshold: 0.1,
         rootMargin: '0px 0px -50px 0px'
     };
-    
-    const observer = new IntersectionObserver(function(entries) {
+
+    const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 entry.target.style.opacity = '1';
                 entry.target.style.transform = 'translateY(0)';
+                entry.target.classList.add('animated');
             }
         });
     }, observerOptions);
-    
-    // Observe elements for fade-in animation
-    const animatedElements = document.querySelectorAll('.highlight-card, .frame-item, .section-title');
-    
+
+    // Observe elements for scroll animations
+    const animatedElements = document.querySelectorAll('.frame-item, .highlight-card, .artwork-container');
     animatedElements.forEach(el => {
         el.style.opacity = '0';
-        el.style.transform = 'translateY(20px)';
+        el.style.transform = 'translateY(30px)';
         el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
         observer.observe(el);
     });
-    
-    // Keyboard navigation
-    document.addEventListener('keydown', function(e) {
-        // Add keyboard shortcuts
-        if (e.ctrlKey || e.metaKey) {
-            switch(e.key) {
-                case 'k':
-                    e.preventDefault();
-                    // Focus search (if implemented)
-                    console.log('Search shortcut');
-                    break;
-                case 'm':
-                    e.preventDefault();
-                    // Toggle menu
-                    console.log('Menu shortcut');
-                    break;
-            }
-        }
-        
-        // Escape key to close any open overlays
-        if (e.key === 'Escape') {
-            const messageOverlays = document.querySelectorAll('[style*="position: fixed"]');
-            messageOverlays.forEach(overlay => {
-                if (overlay.parentNode) {
-                    overlay.parentNode.removeChild(overlay);
-                }
-            });
-        }
+
+    // Footer Links Interaction
+    const footerLinks = document.querySelectorAll('.footer-link');
+    footerLinks.forEach(link => {
+        link.addEventListener('click', function(e) {
+            e.preventDefault();
+            const linkText = this.textContent;
+            showNotification(`${linkText} - Page coming soon`, 'info');
+        });
     });
-    
-    // Performance optimization
-    let ticking = false;
-    
-    function updateOnScroll() {
-        // Add any scroll-based animations here
-        ticking = false;
-    }
-    
-    window.addEventListener('scroll', function() {
-        if (!ticking) {
-            requestAnimationFrame(updateOnScroll);
-            ticking = true;
-        }
-    });
-    
-    // Touch device detection and handling
-    if ('ontouchstart' in window) {
-        document.body.classList.add('touch-device');
-        
-        // Optimize touch interactions
-        frameItems.forEach(item => {
-            item.addEventListener('touchstart', function() {
-                this.style.transform = 'scale(0.98)';
-            });
-            
-            item.addEventListener('touchend', function() {
-                this.style.transform = 'scale(1)';
+
+    // Logo Click Handler
+    const logo = document.querySelector('.logo');
+    if (logo) {
+        logo.addEventListener('click', function() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
             });
         });
     }
-    
-    // Debug mode (can be enabled for development)
-    if (window.location.search.includes('debug=true')) {
-        console.log('ARTRA Debug Mode Enabled');
-        
-        // Add visual debugging helpers
-        document.body.style.position = 'relative';
-        
-        const debugInfo = document.createElement('div');
-        debugInfo.style.cssText = `
-            position: fixed;
-            top: 10px;
-            right: 10px;
-            background: rgba(0, 0, 0, 0.8);
-            color: white;
-            padding: 10px;
-            font-family: monospace;
-            font-size: 12px;
-            z-index: 9999;
-            border-radius: 4px;
-        `;
-        
-        function updateDebugInfo() {
-            debugInfo.innerHTML = `
-                Viewport: ${window.innerWidth}x${window.innerHeight}<br>
-                Scroll: ${window.pageYOffset}px<br>
-                Device: ${window.innerWidth <= 768 ? 'Mobile' : 'Desktop'}
-            `;
+
+    // Keyboard Navigation Support
+    document.addEventListener('keydown', function(e) {
+        // ESC key closes mobile menu
+        if (e.key === 'Escape' && mobileMenuOpen) {
+            mobileMenuBtn.click();
         }
-        
-        updateDebugInfo();
-        window.addEventListener('resize', updateDebugInfo);
-        window.addEventListener('scroll', updateDebugInfo);
-        
-        document.body.appendChild(debugInfo);
-    }
-    
-    console.log('ARTRA Home Page loaded successfully');
+
+        // Arrow keys for frame navigation (optional)
+        if (e.key === 'ArrowLeft' || e.key === 'ArrowRight') {
+            const focusedFrame = document.querySelector('.frame-item:focus');
+            if (focusedFrame) {
+                e.preventDefault();
+                const allFrames = Array.from(document.querySelectorAll('.frame-item'));
+                const currentIndex = allFrames.indexOf(focusedFrame);
+                
+                let nextIndex;
+                if (e.key === 'ArrowLeft') {
+                    nextIndex = currentIndex > 0 ? currentIndex - 1 : allFrames.length - 1;
+                } else {
+                    nextIndex = currentIndex < allFrames.length - 1 ? currentIndex + 1 : 0;
+                }
+                
+                allFrames[nextIndex].focus();
+            }
+        }
+    });
+
+    // Add tabindex for keyboard navigation
+    frameItems.forEach((item, index) => {
+        item.setAttribute('tabindex', '0');
+        item.setAttribute('role', 'button');
+        item.setAttribute('aria-label', `Frame ${index + 1}`);
+    });
+
+    // Performance: Debounce resize events
+    let resizeTimeout;
+    window.addEventListener('resize', function() {
+        clearTimeout(resizeTimeout);
+        resizeTimeout = setTimeout(() => {
+            // Handle resize-specific logic here
+            console.log('Window resized');
+        }, 250);
+    });
+
+    // Error handling for images
+    const images = document.querySelectorAll('img');
+    images.forEach(img => {
+        img.addEventListener('error', function() {
+            this.style.display = 'none';
+            console.warn('Image failed to load:', this.src);
+        });
+    });
+
+    console.log('ARTRA Home page loaded successfully');
 });
 
-// Service Worker registration for PWA capabilities (optional)
-if ('serviceWorker' in navigator) {
-    window.addEventListener('load', function() {
-        // Uncomment to enable service worker
-        // navigator.serviceWorker.register('/sw.js')
-        //     .then(registration => console.log('SW registered'))
-        //     .catch(error => console.log('SW registration failed'));
+// Utility Functions
+function isValidEmail(email) {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailRegex.test(email);
+}
+
+function showNotification(message, type = 'info') {
+    // Remove existing notifications
+    const existingNotification = document.querySelector('.notification');
+    if (existingNotification) {
+        existingNotification.remove();
+    }
+
+    // Create notification element
+    const notification = document.createElement('div');
+    notification.className = `notification notification-${type}`;
+    notification.textContent = message;
+
+    // Style the notification
+    const colors = {
+        'info': '#007bff',
+        'success': '#28a745',
+        'error': '#dc3545',
+        'warning': '#ffc107'
+    };
+
+    notification.style.cssText = `
+        position: fixed;
+        top: 100px;
+        right: 20px;
+        background: ${colors[type] || colors.info};
+        color: white;
+        padding: 15px 20px;
+        border-radius: 5px;
+        z-index: 10000;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+        transform: translateX(100%);
+        transition: transform 0.3s ease;
+        max-width: 300px;
+        word-wrap: break-word;
+        font-family: 'Inter', sans-serif;
+        font-size: 14px;
+        line-height: 1.4;
+    `;
+
+    // Add to DOM
+    document.body.appendChild(notification);
+
+    // Animate in
+    setTimeout(() => {
+        notification.style.transform = 'translateX(0)';
+    }, 100);
+
+    // Auto remove after 3 seconds
+    setTimeout(() => {
+        notification.style.transform = 'translateX(100%)';
+        setTimeout(() => {
+            if (notification.parentNode) {
+                notification.remove();
+            }
+        }, 300);
+    }, 3000);
+}
+
+// Preload critical images (if any)
+function preloadImages() {
+    const imagesToPreload = [
+        // Add image URLs here when available
+    ];
+
+    imagesToPreload.forEach(src => {
+        const img = new Image();
+        img.src = src;
     });
 }
 
-// Export functions for external use if needed
-window.ARTRA = {
-    showMessage: function(message) {
-        // This can be called from external scripts
-        console.log('ARTRA Message:', message);
-    },
+// Initialize preloading
+preloadImages();
+
+// Global error handling
+window.addEventListener('error', function(e) {
+    console.error('Global error:', e.error);
+});
+
+// Analytics placeholder (replace with actual analytics)
+function trackEvent(category, action, label) {
+    console.log('Analytics event:', { category, action, label });
+    // Replace with actual analytics code (Google Analytics, etc.)
+}
+
+// Track user interactions
+document.addEventListener('click', function(e) {
+    const target = e.target;
     
-    navigateTo: function(page) {
-        console.log('Navigate to:', page);
-        // Add navigation logic
+    if (target.matches('.frame-item')) {
+        trackEvent('Interaction', 'Frame Click', target.querySelector('.frame-title')?.textContent);
+    } else if (target.matches('.cta-button')) {
+        trackEvent('Interaction', 'CTA Click', target.textContent);
+    } else if (target.matches('.highlight-card')) {
+        trackEvent('Interaction', 'Highlight Click', target.querySelector('.card-title')?.textContent);
     }
-};
+});
